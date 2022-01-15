@@ -4,3 +4,5 @@ implement useEffect cleanup
 implement logging
 sort quotes by author name
 fix tab indexes
+fix error with empty values on author edit
+make it refresh on every submit

@@ -5,6 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 //Components
 import Nav from '../Nav/Nav';
 import DisplayQuotes from '../DisplayQuotes/DisplayQuotes';
+import EditAuthor from '../EditAuthor/EditAuthor';
 import Footer from '../Footer/Footer';
 
 const AuthorQuotes = (props) => {
@@ -13,6 +14,7 @@ const AuthorQuotes = (props) => {
 
     //states
     const [author, setAuthor] = useState({});
+    const [editAuthorDisplay, setEditAuthorDisplay] = useState(false);
 
     //hooks
     //grab author info from api
@@ -42,11 +44,25 @@ const AuthorQuotes = (props) => {
         })();
     }, []);
 
+    //handlers
+    function handleCancel() {
+        setEditAuthorDisplay(false);
+    }
+
+    function handleEdit() {
+        setEditAuthorDisplay(true);
+    }
+
     //jsx
     return (
         <div className="author-quotes-page">
             <Nav />
             <h2 className="quotes-title">{author.name}'s Quotes</h2>
+
+            <button className="edit-button" onClick={() => handleEdit()}>
+                Edit Author
+            </button>
+
             <div className="author-details">
                 <p className="author-dates">
                     Date Of Birth:
@@ -68,6 +84,13 @@ const AuthorQuotes = (props) => {
                 </p>
             </div>
             <DisplayQuotes url={`/api/authors/${params.id}/quotes`} />
+
+            {editAuthorDisplay && (
+                <div className="edit-container">
+                    <EditAuthor onCancel={handleCancel} author={author} />
+                </div>
+            )}
+
             <Footer />
         </div>
     );

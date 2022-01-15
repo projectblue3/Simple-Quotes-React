@@ -35,7 +35,6 @@ const NewQuote = (props) => {
 
         try {
             const post = await axios.post('/api/quotes/', { authorId: authorSelected, text: quoteText });
-            console.log(post);
         } catch (error) {
             if (error.response) {
                 console.log(error.response.data);
@@ -51,8 +50,8 @@ const NewQuote = (props) => {
 
     //jsx
     return (
-        <div className="new-quote-page">
-            <form onSubmit={postHandler} className="new-quote-form">
+        <div className="new-item-page">
+            <form onSubmit={postHandler} className="new-item-form">
                 <div className="form-group">
                     <label htmlFor="author">Author:</label>
                     <select
@@ -72,11 +71,11 @@ const NewQuote = (props) => {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="text">Quote Text:</label>
+                    <label htmlFor="quote-text">Quote Text:</label>
                     <input
                         type="text"
                         required
-                        id="text"
+                        id="quote-text"
                         placeholder="Enter Quote Text"
                         onChange={(e) => setQuoteText(e.target.value)}
                         value={quoteText}

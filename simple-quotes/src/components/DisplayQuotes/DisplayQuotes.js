@@ -37,7 +37,7 @@ const DisplayQuotes = (props) => {
                 console.log(error.config);
             }
         })();
-    }, [quotes]);
+    }, []);
 
     //handlers
     function handleCancel() {
@@ -66,7 +66,7 @@ const DisplayQuotes = (props) => {
                         )}
 
                         <button className="edit-button" onClick={() => handleEdit(q)}>
-                            Edit
+                            Edit Quote
                         </button>
                     </div>
                 );
