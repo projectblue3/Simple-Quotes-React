@@ -37,7 +37,7 @@ const DisplayQuotes = (props) => {
                 console.log(error.config);
             }
         })();
-    }, []);
+    }, [props.url]);
 
     //handlers
     function handleCancel() {

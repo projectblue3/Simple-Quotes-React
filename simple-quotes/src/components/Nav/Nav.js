@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 
 //components
@@ -9,11 +9,20 @@ const Nav = (props) => {
     //states
     const [newQuoteDisplay, setNewQuoteDisplay] = useState(false);
     const [newAuthorDisplay, setNewAuthorDisplay] = useState(false);
+    const [searchText, setSearchText] = useState('');
+
+    //history
+    let navigate = useNavigate();
 
     //handlers
     function handleCancel() {
         setNewQuoteDisplay(false);
         setNewAuthorDisplay(false);
+    }
+
+    function searchHandler(e) {
+        e.preventDefault();
+        navigate(`/search?q=${searchText}`, { replace: true });
     }
 
     //jsx
@@ -48,19 +57,32 @@ const Nav = (props) => {
                 >
                     New Author
                 </button>
-
-                {newQuoteDisplay && (
-                    <div className="new-item-container">
-                        <NewQuote onCancel={handleCancel} />
-                    </div>
-                )}
-
-                {newAuthorDisplay && (
-                    <div className="new-item-container">
-                        <NewAuthor onCancel={handleCancel} />
-                    </div>
-                )}
             </div>
+
+            <div className="search-section">
+                <form onSubmit={searchHandler} className="search-form">
+                    <input
+                        type="search"
+                        id="search-input"
+                        placeholder="Search our quotes"
+                        onChange={(e) => setSearchText(e.target.value)}
+                        value={searchText}
+                    />
+                    <button>Search</button>
+                </form>
+            </div>
+
+            {newQuoteDisplay && (
+                <div className="new-item-container">
+                    <NewQuote onCancel={handleCancel} />
+                </div>
+            )}
+
+            {newAuthorDisplay && (
+                <div className="new-item-container">
+                    <NewAuthor onCancel={handleCancel} />
+                </div>
+            )}
         </nav>
     );
 };
