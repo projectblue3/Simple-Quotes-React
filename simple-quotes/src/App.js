@@ -7,6 +7,7 @@ import Quotes from './components/Quotes/Quotes';
 import AuthorQuotes from './components/AuthorQuotes/AuthorQuotes';
 import Authors from './components/Authors/Authors';
 import SearchResults from './components/SearchResults/SearchResults';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                     <Route path="/author/:id" element={<AuthorQuotes />}></Route>
                     <Route path="/authors" element={<Authors />}></Route>
                     <Route path="/search" element={<SearchResults />}></Route>
+                    <Route path="*" element={<NotFound />}></Route>
                 </Routes>
             </BrowserRouter>
         </div>
