@@ -36,6 +36,7 @@ const DisplayAuthors = (props) => {
                         <Link className="author-name" to={`/author/${a.id}`}>
                             {a.name}
                         </Link>
+                        {a.isFeatured && <span className="featured-text">Featured Author</span>}
                     </div>
                 );
             })}

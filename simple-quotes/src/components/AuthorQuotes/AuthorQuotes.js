@@ -59,6 +59,8 @@ const AuthorQuotes = (props) => {
             <Nav />
             <h2 className="quotes-title">{author.name}'s Quotes</h2>
 
+            {author.isFeatured && <span className="featured-text">Featured Author</span>}
+
             <button className="edit-button" onClick={() => handleEdit()}>
                 Edit Author
             </button>

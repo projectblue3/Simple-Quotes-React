@@ -6,6 +6,7 @@ const NewQuote = (props) => {
     const [authors, setAuthors] = useState([]);
     const [quoteText, setQuoteText] = useState('');
     const [authorSelected, setAuthorSelected] = useState(0);
+    const [quoteFeatured, setQuoteFeatured] = useState(false);
 
     //get all authors
     useEffect(() => {
@@ -34,7 +35,11 @@ const NewQuote = (props) => {
         e.preventDefault();
 
         try {
-            const post = await axios.post('/api/quotes/', { authorId: authorSelected, text: quoteText });
+            const post = await axios.post('/api/quotes/', {
+                authorId: authorSelected,
+                text: quoteText,
+                isFeatured: quoteFeatured,
+            });
         } catch (error) {
             if (error.response) {
                 console.log(error.response.data);
@@ -47,6 +52,11 @@ const NewQuote = (props) => {
             }
         }
     };
+
+    //handle quote featured checkbox
+    function handleChecked() {
+        setQuoteFeatured(!quoteFeatured);
+    }
 
     //jsx
     return (
@@ -81,14 +91,23 @@ const NewQuote = (props) => {
                         value={quoteText}
                         tabIndex={2}
                     />
-                    <button type="submit" className="submit-btn" tabIndex={3}>
-                        Submit
-                    </button>
-
-                    <button className="cancel-button" type="button" onClick={props.onCancel} tabIndex={4}>
-                        Cancel
-                    </button>
                 </div>
+                <div className="form-group">
+                    <input
+                        type="checkbox"
+                        id="quoteIsFeaturedC"
+                        checked={quoteFeatured}
+                        onChange={handleChecked}
+                    />
+                    <label htmlFor="quoteIsFeaturedC">Featured</label>
+                </div>
+                <button type="submit" className="submit-btn" tabIndex={3}>
+                    Submit
+                </button>
+
+                <button className="cancel-button" type="button" onClick={props.onCancel} tabIndex={4}>
+                    Cancel
+                </button>
             </form>
         </div>
     );

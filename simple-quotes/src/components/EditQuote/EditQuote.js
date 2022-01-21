@@ -2,20 +2,35 @@ import axios from 'axios';
 import React, { useState } from 'react';
 
 const EditQuote = (props) => {
+    //first render values
+    const oldQuoteText = props.quote.text;
+    const oldQuoteFeatured = props.quote.isFeatured;
+
     //states
     const [quoteText, setQuoteText] = useState(props.quote.text);
+    const [quoteFeatured, setQuoteFeatured] = useState(props.quote.isFeatured);
 
     //handles patch requests
     const patchHandler = async (e) => {
         e.preventDefault();
 
-        const patchData = [
-            {
+        const patchData = [];
+
+        if (oldQuoteText !== quoteText) {
+            patchData.push({
                 op: 'replace',
                 path: '/text',
                 value: quoteText,
-            },
-        ];
+            });
+        }
+
+        if (oldQuoteFeatured !== quoteFeatured) {
+            patchData.push({
+                op: 'replace',
+                path: '/isFeatured',
+                value: quoteFeatured,
+            });
+        }
 
         try {
             await axios.patch(`/api/quotes/${props.quote.id}`, patchData);
@@ -52,6 +67,11 @@ const EditQuote = (props) => {
         }
     };
 
+    //handle quote featured checkbox
+    function handleChecked() {
+        setQuoteFeatured(!quoteFeatured);
+    }
+
     //jsx
     return (
         <div className="edit-page">
@@ -67,18 +87,27 @@ const EditQuote = (props) => {
                         value={quoteText}
                         tabIndex={1}
                     />
-                    <button type="submit" className="submit-btn" tabIndex={2}>
-                        Submit
-                    </button>
-
-                    <button className="delete-button" onClick={deleteHandler} tabIndex={3}>
-                        Delete
-                    </button>
-
-                    <button className="cancel-button" type="button" onClick={props.onCancel} tabIndex={4}>
-                        Cancel
-                    </button>
                 </div>
+                <div className="form-group">
+                    <input
+                        type="checkbox"
+                        id="quoteIsFeatured"
+                        checked={quoteFeatured}
+                        onChange={handleChecked}
+                    />
+                    <label htmlFor="quoteIsFeatured">Featured</label>
+                </div>
+                <button type="submit" className="submit-btn" tabIndex={2}>
+                    Submit
+                </button>
+
+                <button className="delete-button" onClick={deleteHandler} tabIndex={3}>
+                    Delete
+                </button>
+
+                <button className="cancel-button" type="button" onClick={props.onCancel} tabIndex={4}>
+                    Cancel
+                </button>
             </form>
         </div>
     );

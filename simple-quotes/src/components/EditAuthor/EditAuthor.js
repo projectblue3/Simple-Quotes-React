@@ -2,12 +2,13 @@ import axios from 'axios';
 import React, { useState } from 'react';
 
 const EditAuthor = (props) => {
-    //previous author values
+    //first render values
     const oldName = props.author.name;
     const oldDob = props.author.dateOfBirth;
     const oldDod = props.author.dateOfDeath;
     const oldJob = props.author.occupation;
     const oldBio = props.author.bio;
+    const oldAuthorFeatured = props.author.isFeatured;
 
     //states
     const [authorName, setAuthorName] = useState(props.author.name);
@@ -15,6 +16,7 @@ const EditAuthor = (props) => {
     const [authorDod, setAuthorDod] = useState(props.author.dateOfDeath);
     const [authorJob, setAuthorJob] = useState(props.author.occupation);
     const [authorBio, setAuthorBio] = useState(props.author.bio);
+    const [authorFeatured, setAuthorFeatured] = useState(props.author.isFeatured);
 
     //handles patch requests
     const patchHandler = async (e) => {
@@ -62,6 +64,14 @@ const EditAuthor = (props) => {
             });
         }
 
+        if (oldAuthorFeatured !== authorFeatured) {
+            patchData.push({
+                op: 'replace',
+                path: '/isFeatured',
+                value: authorFeatured,
+            });
+        }
+
         try {
             console.log(patchData);
             await axios.patch(`/api/authors/${props.author.id}`, patchData);
@@ -97,6 +107,11 @@ const EditAuthor = (props) => {
             }
         }
     };
+
+    //handle quote featured checkbox
+    function handleChecked() {
+        setAuthorFeatured(!authorFeatured);
+    }
 
     //jsx
     return (
@@ -157,6 +172,16 @@ const EditAuthor = (props) => {
                         value={authorBio}
                         tabIndex={5}
                     />
+                </div>
+
+                <div className="form-group">
+                    <input
+                        type="checkbox"
+                        id="authorIsFeatured"
+                        checked={authorFeatured}
+                        onChange={handleChecked}
+                    />
+                    <label htmlFor="authorIsFeatured">Featured</label>
                 </div>
 
                 <button type="submit" className="submit-btn" tabIndex={6}>

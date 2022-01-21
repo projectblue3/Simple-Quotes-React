@@ -8,6 +8,7 @@ const NewAuthor = (props) => {
     const [authorDod, setAuthorDod] = useState('');
     const [authorJob, setAuthorJob] = useState('');
     const [authorBio, setAuthorBio] = useState('');
+    const [authorFeatured, setAuthorFeatured] = useState(false);
 
     //handle post requests
     const postHandler = async (e) => {
@@ -20,6 +21,7 @@ const NewAuthor = (props) => {
                 DateOfDeath: authorDod,
                 Occupation: authorJob,
                 Bio: authorBio,
+                IsFeatured: authorFeatured,
             });
         } catch (error) {
             if (error.response) {
@@ -33,6 +35,11 @@ const NewAuthor = (props) => {
             }
         }
     };
+
+    //handle quote featured checkbox
+    function handleChecked() {
+        setAuthorFeatured(!authorFeatured);
+    }
 
     //jsx
     return (
@@ -93,6 +100,15 @@ const NewAuthor = (props) => {
                         value={authorBio}
                         tabIndex={5}
                     />
+                </div>
+                <div className="form-group">
+                    <input
+                        type="checkbox"
+                        id="authorIsFeaturedC"
+                        checked={authorFeatured}
+                        onChange={handleChecked}
+                    />
+                    <label htmlFor="authorIsFeaturedC">Featured</label>
                 </div>
                 <button type="submit" className="submit-btn" tabIndex={6}>
                     Submit

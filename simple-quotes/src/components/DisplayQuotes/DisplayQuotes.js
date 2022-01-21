@@ -57,6 +57,8 @@ const DisplayQuotes = (props) => {
                     <div className="quotes-item" key={q.id}>
                         <p className="quote-text">{q.text}</p>
 
+                        {q.isFeatured && <span className="featured-text">Featured Quote</span>}
+
                         {q.authorId ? (
                             <Link to={`/author/${q.authorId}`} className="author-name">
                                 {q.authorName}
