@@ -1,0 +1,7 @@
+fix useNavigate preventing user from going back
+
+fix going to home from home not re rendering
+
+sort arrays
+
+improve user feedback

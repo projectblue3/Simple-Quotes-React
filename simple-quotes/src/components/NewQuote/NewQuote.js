@@ -32,8 +32,6 @@ const NewQuote = (props) => {
 
     //handle post requests
     const postHandler = async (e) => {
-        e.preventDefault();
-
         try {
             const post = await axios.post('/api/quotes/', {
                 authorId: authorSelected,

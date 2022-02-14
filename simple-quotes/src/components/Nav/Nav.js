@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 //components
 import NewQuote from '../NewQuote/NewQuote';
 import NewAuthor from '../NewAuthor/NewAuthor';
+import Popup from '../Popup/Popup';
 
 const Nav = (props) => {
     //states
@@ -27,61 +28,60 @@ const Nav = (props) => {
 
     //jsx
     return (
-        <nav className="site-nav">
-            <h1 className="site-title">Simple Quotes</h1>
-            <div className="nav-links">
+        <nav id="site-nav">
+            <div id="nav-links">
                 <Link to="/" className="nav-link">
+                    <h1 id="nav-title">Simple Quotes</h1>
+                </Link>
+
+                <Link to="/" className="nav-link small">
                     Home
                 </Link>
 
-                <Link to="/quotes" className="nav-link">
+                <Link to="/quotes" className="nav-link small">
                     Quotes
                 </Link>
 
-                <Link to="/authors" className="nav-link">
+                <Link to="/authors" className="nav-link small">
                     Authors
                 </Link>
 
-                <button
-                    className="nav-link new-quote-link"
-                    type="button"
+                <Link
+                    to="#"
+                    className="nav-link small new-item-link"
                     onClick={() => setNewQuoteDisplay(true)}
                 >
                     New Quote
-                </button>
+                </Link>
 
-                <button
-                    className="nav-link new-quote-link"
-                    type="button"
+                <Link
+                    to="#"
+                    className="nav-link small new-item-link"
                     onClick={() => setNewAuthorDisplay(true)}
                 >
                     New Author
-                </button>
+                </Link>
             </div>
 
-            <div className="search-section">
+            <div id="nav-search">
                 <form onSubmit={searchHandler} className="search-form">
                     <input
                         type="search"
                         id="search-input"
-                        placeholder="Search our quotes"
+                        className="search-box"
+                        placeholder="Search"
                         onChange={(e) => setSearchText(e.target.value)}
                         value={searchText}
                     />
-                    <button>Search</button>
                 </form>
             </div>
 
             {newQuoteDisplay && (
-                <div className="new-item-container">
-                    <NewQuote onCancel={handleCancel} />
-                </div>
+                <Popup content={<NewQuote onCancel={handleCancel} />} onCancel={handleCancel} />
             )}
 
             {newAuthorDisplay && (
-                <div className="new-item-container">
-                    <NewAuthor onCancel={handleCancel} />
-                </div>
+                <Popup content={<NewAuthor onCancel={handleCancel} />} onCancel={handleCancel} />
             )}
         </nav>
     );

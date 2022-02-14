@@ -1,0 +1,30 @@
+//Variables
+$light-bg: #ffffff;
+$dim-light-bg: #f5f5f6;
+$nav-bg: #3eb489;
+$nav-text: #ebeced;
+$search-border: #43c293;
+$search-bg: #32926f;
+$dark-text: #444444;
+$main-content-width: 65%;
+
+//Mixins
+@mixin align-head-foot {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@mixin flex-align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin fill-screen {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    bottom: 0;
+    right: 0;
+}

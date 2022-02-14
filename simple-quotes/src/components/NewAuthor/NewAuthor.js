@@ -11,9 +11,7 @@ const NewAuthor = (props) => {
     const [authorFeatured, setAuthorFeatured] = useState(false);
 
     //handle post requests
-    const postHandler = async (e) => {
-        e.preventDefault();
-
+    const postHandler = async () => {
         try {
             const author = await axios.post('/api/authors/', {
                 Name: authorName,

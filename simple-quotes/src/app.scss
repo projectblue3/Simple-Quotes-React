@@ -1,0 +1,47 @@
+@use 'vars';
+@use './components/Home/Home';
+@use './components/Nav/Nav';
+@use './components/Popup/Popup';
+@use './components/Footer/Footer';
+
+.comp-parent {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.page-header {
+    background: vars.$nav-bg;
+    position: fixed;
+    @include vars.align-head-foot;
+}
+
+.page-main {
+    margin-top: 7vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .main-top {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 3em;
+    }
+
+    .main-bottom {
+        display: flex;
+        justify-content: center;
+        background: vars.$dim-light-bg;
+        min-height: 60vh;
+        padding: 2.5em 0;
+    }
+}
+
+.page-footer {
+    @include vars.align-head-foot;
+}
+
+.page-content {
+    width: vars.$main-content-width;
+}

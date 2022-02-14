@@ -1,0 +1,18 @@
+@use '../../vars';
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    width: vars.$main-content-width;
+    padding-top: 1em;
+}
+
+.social-links {
+    width: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sl-icon {
+    max-width: 32px;
+}

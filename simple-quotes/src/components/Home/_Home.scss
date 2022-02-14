@@ -1,0 +1,148 @@
+@use '../../vars';
+
+.big-home-heading {
+    font-size: 3rem;
+    align-self: center;
+    color: vars.$dark-text;
+}
+
+.home-heading {
+    color: vars.$dark-text;
+    font-size: 1.8rem;
+    margin-bottom: 0.5em;
+}
+
+.content-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.home-search-form {
+    display: flex;
+    justify-content: center;
+    padding: 3em 0;
+}
+
+.home-search-box {
+    width: 50%;
+    height: 2em;
+    padding-left: 0.3em;
+}
+
+.content-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-card {
+    width: 33.3%;
+    min-height: 30vh;
+}
+
+.home-card-content {
+    font-size: 1.3rem;
+    color: vars.$dark-text;
+
+    a {
+        color: vars.$search-bg;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: vars.$dark-text;
+    }
+}
+
+.site-description {
+    padding-right: 2em;
+}
+
+.des-item {
+    padding: 0.5em 0;
+}
+
+.home-authors {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding: 0 2em;
+}
+
+.home-socials {
+    padding: 0 2em;
+}
+
+.home-social-links {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.home-social-link {
+    background: vars.$nav-bg;
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+}
+
+.home-social-link.linked-in {
+    background: vars.$search-bg;
+}
+
+.home-sl-link span {
+    color: vars.$light-bg;
+    font-size: 2rem;
+    padding-left: 0.7em;
+}
+
+.home-sl-icon {
+    height: 32px;
+    width: 32px;
+}
+
+.authors-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+}
+
+.authors-item {
+    padding: 0.1em 0;
+}
+
+.quotes-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    row-gap: 2em;
+}
+
+.quotes-item {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    border-bottom: 1px solid vars.$dark-text;
+    padding-bottom: 1em;
+
+    .author-name::before {
+        content: '- ';
+    }
+}
+/*
+
+.content-square {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2em;
+    margin-top: 2em;
+}
+
+.home-card-content {
+    background: white;
+    padding: 2em;
+    min-height: 30vh;
+    border-radius: 5px;
+}
+*/
