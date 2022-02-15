@@ -25,7 +25,7 @@
 }
 
 .home-search-box {
-    width: 50%;
+    width: 50vw;
     height: 2em;
     padding-left: 0.3em;
 }
@@ -36,7 +36,7 @@
 }
 
 .home-card {
-    width: 33.3%;
+    width: 33.3vw;
     min-height: 30vh;
 }
 
@@ -75,7 +75,7 @@
 .home-social-links {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 20vw;
 }
 
 .home-social-link {
@@ -83,6 +83,10 @@
     padding: 0.5em;
     display: flex;
     align-items: center;
+}
+
+.home-social-link:hover {
+    padding-left: 1em;
 }
 
 .home-social-link.linked-in {
@@ -118,7 +122,7 @@
 }
 
 .quotes-item {
-    width: 85%;
+    width: 30vw;
     display: flex;
     flex-direction: column;
     justify-content: end;

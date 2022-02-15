@@ -1,16 +1,16 @@
 //Variables
 $light-bg: #ffffff;
-$dim-light-bg: #f5f5f6;
+$dim-light-bg: darken($light-bg, 3%);
 $nav-bg: #3eb489;
 $nav-text: #ebeced;
 $search-border: #43c293;
-$search-bg: #32926f;
+$search-bg: darken($nav-bg, 10%);
 $dark-text: #444444;
-$main-content-width: 65%;
+$main-content-width: 70vw;
 
 //Mixins
 @mixin align-head-foot {
-    width: 100%;
+    width: 100vw;
     display: flex;
     justify-content: center;
 }
