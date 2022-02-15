@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const NewQuote = (props) => {
     //states
@@ -7,6 +8,9 @@ const NewQuote = (props) => {
     const [quoteText, setQuoteText] = useState('');
     const [authorSelected, setAuthorSelected] = useState(0);
     const [quoteFeatured, setQuoteFeatured] = useState(false);
+
+    //history
+    let navigate = useNavigate();
 
     //get all authors
     useEffect(() => {
@@ -32,12 +36,15 @@ const NewQuote = (props) => {
 
     //handle post requests
     const postHandler = async (e) => {
+        e.preventDefault();
         try {
-            const post = await axios.post('/api/quotes/', {
+            const quote = await axios.post('/api/quotes/', {
                 authorId: authorSelected,
                 text: quoteText,
                 isFeatured: quoteFeatured,
             });
+
+            navigate(`/author/${quote.data.authorId}`, { replace: true });
         } catch (error) {
             if (error.response) {
                 console.log(error.response.data);
@@ -62,12 +69,7 @@ const NewQuote = (props) => {
             <form onSubmit={postHandler} className="new-item-form">
                 <div className="form-group">
                     <label htmlFor="author">Author:</label>
-                    <select
-                        name="author"
-                        id="author-list"
-                        tabIndex={1}
-                        onChange={(e) => setAuthorSelected(parseInt(e.target.value))}
-                    >
+                    <select name="author" id="author-list" tabIndex={1} onChange={(e) => setAuthorSelected(parseInt(e.target.value))}>
                         {authors.map((a) => {
                             return (
                                 <option value={a.id} className="author-list-item" key={a.id}>
@@ -91,12 +93,7 @@ const NewQuote = (props) => {
                     />
                 </div>
                 <div className="form-group">
-                    <input
-                        type="checkbox"
-                        id="quoteIsFeaturedC"
-                        checked={quoteFeatured}
-                        onChange={handleChecked}
-                    />
+                    <input type="checkbox" id="quoteIsFeaturedC" checked={quoteFeatured} onChange={handleChecked} />
                     <label htmlFor="quoteIsFeaturedC">Featured</label>
                 </div>
                 <button type="submit" className="submit-btn" tabIndex={3}>

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const NewAuthor = (props) => {
     //states
@@ -10,8 +11,12 @@ const NewAuthor = (props) => {
     const [authorBio, setAuthorBio] = useState('');
     const [authorFeatured, setAuthorFeatured] = useState(false);
 
+    //history
+    let navigate = useNavigate();
+
     //handle post requests
-    const postHandler = async () => {
+    const postHandler = async (e) => {
+        e.preventDefault();
         try {
             const author = await axios.post('/api/authors/', {
                 Name: authorName,
@@ -21,6 +26,8 @@ const NewAuthor = (props) => {
                 Bio: authorBio,
                 IsFeatured: authorFeatured,
             });
+
+            navigate(`/author/${author.data.id}`, { replace: true });
         } catch (error) {
             if (error.response) {
                 console.log(error.response.data);
@@ -57,24 +64,11 @@ const NewAuthor = (props) => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="author-dob">Date Of Birth:</label>
-                    <input
-                        type="date"
-                        required
-                        id="author-dob"
-                        onChange={(e) => setAuthorDob(e.target.value)}
-                        value={authorDob}
-                        tabIndex={2}
-                    />
+                    <input type="date" required id="author-dob" onChange={(e) => setAuthorDob(e.target.value)} value={authorDob} tabIndex={2} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="author-dod">Date Of Death:</label>
-                    <input
-                        type="date"
-                        id="author-dod"
-                        onChange={(e) => setAuthorDod(e.target.value)}
-                        value={authorDod}
-                        tabIndex={3}
-                    />
+                    <input type="date" id="author-dod" onChange={(e) => setAuthorDod(e.target.value)} value={authorDod} tabIndex={3} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="author-job">Occupation:</label>
@@ -100,12 +94,7 @@ const NewAuthor = (props) => {
                     />
                 </div>
                 <div className="form-group">
-                    <input
-                        type="checkbox"
-                        id="authorIsFeaturedC"
-                        checked={authorFeatured}
-                        onChange={handleChecked}
-                    />
+                    <input type="checkbox" id="authorIsFeaturedC" checked={authorFeatured} onChange={handleChecked} />
                     <label htmlFor="authorIsFeaturedC">Featured</label>
                 </div>
                 <button type="submit" className="submit-btn" tabIndex={6}>
