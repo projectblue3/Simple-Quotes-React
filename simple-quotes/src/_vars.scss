@@ -10,7 +10,7 @@ $main-content-width: 70vw;
 
 //Mixins
 @mixin align-head-foot {
-    width: 100vw;
+    width: calc(100vw - (100vw - 100%));
     display: flex;
     justify-content: center;
 }
@@ -23,7 +23,7 @@ $main-content-width: 70vw;
 
 @mixin fill-screen {
     position: fixed;
-    width: 100vw;
+    width: calc(100vw - (100vw - 100%));
     height: 100vh;
     bottom: 0;
     right: 0;
