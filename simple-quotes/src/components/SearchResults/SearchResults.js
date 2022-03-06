@@ -12,11 +12,21 @@ const SearchResults = (props) => {
 
     //jsx
     return (
-        <div className="search-page">
-            <Nav />
-            <h2 className="page-title">Search Results For: {searchParams.get('q')}</h2>
-            <DisplayQuotes url={`/api/quotes/?searchterms=${searchParams.get('q')}`} />
-            <Footer />
+        <div className="comp-parent" id="quotes-page">
+            <header className="page-header">
+                <Nav />
+            </header>
+
+            <main className="quotes-main">
+                <div className="page-content" id="search-content">
+                    <h2 className="big-home-heading">Search Results For: {searchParams.get('q')}</h2>
+                    <DisplayQuotes url={`/api/quotes/?searchterms=${searchParams.get('q')}`} />
+                </div>
+            </main>
+
+            <footer className="page-footer">
+                <Footer />
+            </footer>
         </div>
     );
 };

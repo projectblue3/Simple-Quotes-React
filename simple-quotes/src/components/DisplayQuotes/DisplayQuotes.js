@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 //Components
 import EditQuote from '../EditQuote/EditQuote';
+import Popup from '../Popup/Popup';
 
 const DisplayQuotes = (props) => {
     //states
@@ -57,8 +58,6 @@ const DisplayQuotes = (props) => {
                     <div className="quotes-item" key={q.id}>
                         <p className="quote-text">{q.text}</p>
 
-                        {q.isFeatured && <span className="featured-text">Featured Quote</span>}
-
                         {q.authorId ? (
                             <Link to={`/author/${q.authorId}`} className="author-name">
                                 {q.authorName}
@@ -67,8 +66,10 @@ const DisplayQuotes = (props) => {
                             <p className="author-name">{q.authorName}</p>
                         )}
 
+                        {q.isFeatured && <span className="featured-text">Featured Quote</span>}
+
                         <button className="edit-button" onClick={() => handleEdit(q)}>
-                            Edit Quote
+                            E
                         </button>
                     </div>
                 );
@@ -76,7 +77,7 @@ const DisplayQuotes = (props) => {
 
             {editDisplay && (
                 <div className="edit-container">
-                    <EditQuote onCancel={handleCancel} quote={quoteToEdit} />
+                    <Popup content={<EditQuote onCancel={handleCancel} quote={quoteToEdit} />} onCancel={handleCancel} />
                 </div>
             )}
         </div>

@@ -7,3 +7,4 @@ fix error with empty values on author edit
 make it refresh on every submit
 improve feedback to user
 add warning on delete and edit
+fix new quote/author clearing search results

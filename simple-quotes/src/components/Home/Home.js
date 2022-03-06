@@ -73,7 +73,7 @@ const Home = (props) => {
                 <Nav />
             </header>
 
-            <main className="page-main">
+            <main className="home-main">
                 <div className="main-top">
                     <div className="page-content">
                         <div className="content-top">
@@ -100,26 +100,23 @@ const Home = (props) => {
                                     <ul className="des-ul">
                                         <li className="des-item">
                                             <p>
-                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                                Commodi nisi cumque excepturi. Id officiis alias, eligendi
-                                                nisi reiciendis libero repellat. Labore voluptatibus,
-                                                accusamus hic corrupti eos tempora consequatur obcaecati vero!
+                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi nisi cumque excepturi. Id officiis
+                                                alias, eligendi nisi reiciendis libero repellat. Labore voluptatibus, accusamus hic corrupti eos
+                                                tempora consequatur obcaecati vero!
                                             </p>
                                         </li>
                                         <li className="des-item">
                                             <p>
-                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                                Laboriosam sed minima rem cupiditate praesentium architecto!
-                                                Perferendis quos doloribus pariatur molestiae nostrum, itaque,
-                                                deleniti quidem odit suscipit harum mollitia dolore porro?
+                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam sed minima rem cupiditate
+                                                praesentium architecto! Perferendis quos doloribus pariatur molestiae nostrum, itaque, deleniti quidem
+                                                odit suscipit harum mollitia dolore porro?
                                             </p>
                                         </li>
                                         <li className="des-item">
                                             <p>
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
-                                                sapiente eum, atque velit voluptates aliquam blanditiis ut
-                                                commodi saepe qui. Deleniti nulla id fugit corrupti repellat
-                                                culpa vel molestias aperiam?
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla sapiente eum, atque velit voluptates
+                                                aliquam blanditiis ut commodi saepe qui. Deleniti nulla id fugit corrupti repellat culpa vel molestias
+                                                aperiam?
                                             </p>
                                         </li>
                                     </ul>
@@ -145,43 +142,21 @@ const Home = (props) => {
                                 <h3 className="home-heading">Where To Find Me</h3>
                                 <div className="home-card-content">
                                     <div className="home-social-links">
-                                        <a
-                                            href="https://github.com/projectblue3"
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            className="home-sl-link"
-                                        >
+                                        <a href="https://github.com/projectblue3" target="_blank" rel="noreferrer" className="home-sl-link">
                                             <div className="home-social-link">
-                                                <img
-                                                    src={gitLogo}
-                                                    alt="github icon"
-                                                    className="home-sl-icon"
-                                                />
+                                                <img src={gitLogo} alt="github icon" className="home-sl-icon" />
                                                 <span>GitHub</span>
                                             </div>
                                         </a>
-                                        <a
-                                            href="https://linkedin.com/in/caldwin-cason"
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            className="home-sl-link"
-                                        >
+                                        <a href="https://linkedin.com/in/caldwin-cason" target="_blank" rel="noreferrer" className="home-sl-link">
                                             <div className="home-social-link linked-in">
-                                                <img
-                                                    src={liLogo}
-                                                    alt="linkedin icon"
-                                                    className="home-sl-icon"
-                                                />
+                                                <img src={liLogo} alt="linkedin icon" className="home-sl-icon" />
                                                 <span>LinkedIn</span>
                                             </div>
                                         </a>
                                         <a href="#" target="_blank" rel="noreferrer" className="home-sl-link">
                                             <div className="home-social-link">
-                                                <img
-                                                    src={instaLogo}
-                                                    alt="insta icon"
-                                                    className="home-sl-icon"
-                                                />
+                                                <img src={instaLogo} alt="insta icon" className="home-sl-icon" />
                                                 <span>Instagram</span>
                                             </div>
                                         </a>
@@ -199,7 +174,7 @@ const Home = (props) => {
                             <div className="home-card-content">
                                 <div className="quotes-list">
                                     {featuredQuotes.map((q) => (
-                                        <div className="quotes-item" key={q.id}>
+                                        <div className="home-quotes-item" key={q.id}>
                                             <p className="quote-text">{q.text}</p>
 
                                             <Link to={`/author/${q.authorId}`} className="author-name">

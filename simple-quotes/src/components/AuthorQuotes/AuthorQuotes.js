@@ -7,6 +7,7 @@ import Nav from '../Nav/Nav';
 import DisplayQuotes from '../DisplayQuotes/DisplayQuotes';
 import EditAuthor from '../EditAuthor/EditAuthor';
 import Footer from '../Footer/Footer';
+import Popup from '../Popup/Popup';
 
 const AuthorQuotes = (props) => {
     //Get ID from URL
@@ -55,45 +56,54 @@ const AuthorQuotes = (props) => {
 
     //jsx
     return (
-        <div className="author-quotes-page">
-            <Nav />
-            <h2 className="quotes-title">{author.name}'s Quotes</h2>
+        <div className="comp-parent" id="author-quotes-page">
+            <header className="page-header">
+                <Nav />
+            </header>
 
-            {author.isFeatured && <span className="featured-text">Featured Author</span>}
+            <main className="author-quotes-main">
+                <div className="page-content" id="author-quotes-content">
+                    <h2 className="big-home-heading">
+                        {author.name}'s Quotes {author.isFeatured && <span className="featured-text">Featured Author</span>}
+                    </h2>
 
-            <button className="edit-button" onClick={() => handleEdit()}>
-                Edit Author
-            </button>
+                    <button className="edit-button" onClick={() => handleEdit()}>
+                        E
+                    </button>
 
-            <div className="author-details">
-                <p className="author-dates">
-                    Date Of Birth:
-                    <span className="date-text"> {author.dateOfBirth}</span>
-                </p>
-                {author.dateOfDeath && (
-                    <p className="author-dates">
-                        Date Of Death:
-                        <span className="date-text"> {author.dateOfDeath}</span>
-                    </p>
-                )}
-                <p className="author-info">
-                    Occupation:
-                    <span className="info-text"> {author.occupation}</span>
-                </p>
-                <p className="author-info">
-                    Biography:
-                    <span className="info-text"> {author.bio}</span>
-                </p>
-            </div>
-            <DisplayQuotes url={`/api/authors/${params.id}/quotes`} />
+                    <div className="author-details">
+                        <p className="author-info">
+                            Date Of Birth:
+                            <span className="info-text"> {author.dateOfBirth}</span>
+                        </p>
+                        {author.dateOfDeath && (
+                            <p className="author-info">
+                                Date Of Death:
+                                <span className="info-text"> {author.dateOfDeath}</span>
+                            </p>
+                        )}
+                        <p className="author-info">
+                            Occupation:
+                            <span className="info-text"> {author.occupation}</span>
+                        </p>
+                        <p className="author-info">
+                            Biography:
+                            <span className="info-text"> {author.bio}</span>
+                        </p>
+                    </div>
+                    <DisplayQuotes url={`/api/authors/${params.id}/quotes`} />
 
-            {editAuthorDisplay && (
-                <div className="edit-container">
-                    <EditAuthor onCancel={handleCancel} author={author} />
+                    {editAuthorDisplay && (
+                        <div className="edit-container">
+                            <Popup content={<EditAuthor onCancel={handleCancel} author={author} />} onCancel={handleCancel} />
+                        </div>
+                    )}
                 </div>
-            )}
+            </main>
 
-            <Footer />
+            <footer className="page-footer">
+                <Footer />
+            </footer>
         </div>
     );
 };
