@@ -1,10 +1,10 @@
-@use '../../vars';
+@use 'utils';
 
 #site-nav {
     display: flex;
     justify-content: space-between;
     align-content: center;
-    width: vars.$main-content-width;
+    width: utils.$main-content-width;
 }
 
 #nav-links {
@@ -18,7 +18,7 @@
         background: none;
         border: none;
         cursor: pointer;
-        color: vars.$light-bg;
+        color: utils.$light-bg;
     }
 
     .nav-link.small {
@@ -26,7 +26,7 @@
     }
 
     .nav-link.small:hover {
-        background: vars.$search-bg;
+        background: utils.$search-bg;
     }
 
     #nav-title {
@@ -39,15 +39,15 @@
     align-items: center;
 
     .search-box {
-        color: vars.$light-bg;
-        border: 0.1rem solid vars.$search-border;
+        color: utils.$light-bg;
+        border: 0.1rem solid utils.$search-border;
         border-radius: 5px;
-        background: vars.$search-bg;
+        background: utils.$search-bg;
         padding: 0.3em;
     }
 
     .search-box::placeholder {
-        color: vars.$light-bg;
+        color: utils.$light-bg;
     }
 
     input[type='search']::-webkit-search-cancel-button {

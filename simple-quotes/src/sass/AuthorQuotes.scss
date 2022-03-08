@@ -1,0 +1,14 @@
+@use 'utils';
+
+.author-quotes-main {
+    @include utils.align-main;
+}
+
+.author-details {
+    width: 60%;
+}
+
+.author-info {
+    font-size: 1.3rem;
+    padding: 0.8em 0;
+}

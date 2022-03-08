@@ -1,4 +1,5 @@
 import React from 'react';
+import './Authors.css';
 
 //Components
 import Nav from '../Nav/Nav';

@@ -1,0 +1,5 @@
+@use 'utils';
+
+.authors-main {
+    @include utils.align-main;
+}

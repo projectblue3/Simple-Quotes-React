@@ -1,4 +1,4 @@
-@use '../../vars';
+@use 'utils';
 
 .quotes-container {
     display: flex;
@@ -8,19 +8,19 @@
     padding-top: 2em;
 
     a {
-        color: vars.$search-bg;
+        color: utils.$search-bg;
         text-decoration: none;
     }
 
     a:hover {
-        color: vars.$dark-text;
+        color: utils.$dark-text;
     }
 }
 
 .quotes-item {
     width: 310px;
     height: 150px;
-    background: vars.$dim-light-bg;
+    background: utils.$dim-light-bg;
     border-radius: 5px;
     padding: 1em;
     display: flex;

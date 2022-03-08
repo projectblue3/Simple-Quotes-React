@@ -12,7 +12,7 @@ const SearchResults = (props) => {
 
     //jsx
     return (
-        <div className="comp-parent" id="quotes-page">
+        <div className="comp-parent" id="search-page">
             <header className="page-header">
                 <Nav />
             </header>

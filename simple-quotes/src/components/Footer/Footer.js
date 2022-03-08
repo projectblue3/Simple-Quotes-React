@@ -1,6 +1,7 @@
 import React from 'react';
 import gitLogo from '../../icons/GitHub-Mark-64px.png';
 import liLogo from '../../icons/LI-In-Bug.png';
+import './Footer.css';
 
 const Footer = (props) => {
     return (

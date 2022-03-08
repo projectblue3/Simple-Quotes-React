@@ -1,0 +1,20 @@
+@use 'utils';
+
+.popup-main {
+    @include utils.fill-screen;
+    @include utils.flex-align;
+}
+
+.popup-bg {
+    @include utils.fill-screen;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+    z-index: 999;
+    background: utils.$light-bg;
+    height: 30vh;
+    width: 30vw;
+    border-radius: 10px;
+    @include utils.flex-align;
+}

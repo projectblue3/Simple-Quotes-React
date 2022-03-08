@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import './Nav.css';
 
 //components
 import NewQuote from '../NewQuote/NewQuote';
@@ -46,19 +47,11 @@ const Nav = (props) => {
                     Authors
                 </Link>
 
-                <Link
-                    to="#"
-                    className="nav-link small new-item-link"
-                    onClick={() => setNewQuoteDisplay(true)}
-                >
+                <Link to="#" className="nav-link small new-item-link" onClick={() => setNewQuoteDisplay(true)}>
                     New Quote
                 </Link>
 
-                <Link
-                    to="#"
-                    className="nav-link small new-item-link"
-                    onClick={() => setNewAuthorDisplay(true)}
-                >
+                <Link to="#" className="nav-link small new-item-link" onClick={() => setNewAuthorDisplay(true)}>
                     New Author
                 </Link>
             </div>
@@ -76,13 +69,9 @@ const Nav = (props) => {
                 </form>
             </div>
 
-            {newQuoteDisplay && (
-                <Popup content={<NewQuote onCancel={handleCancel} />} onCancel={handleCancel} />
-            )}
+            {newQuoteDisplay && <Popup content={<NewQuote onCancel={handleCancel} />} onCancel={handleCancel} />}
 
-            {newAuthorDisplay && (
-                <Popup content={<NewAuthor onCancel={handleCancel} />} onCancel={handleCancel} />
-            )}
+            {newAuthorDisplay && <Popup content={<NewAuthor onCancel={handleCancel} />} onCancel={handleCancel} />}
         </nav>
     );
 };

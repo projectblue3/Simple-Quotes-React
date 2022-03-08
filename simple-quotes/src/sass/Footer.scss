@@ -1,9 +1,9 @@
-@use '../../vars';
+@use 'utils';
 
 .footer {
     display: flex;
     justify-content: space-between;
-    width: vars.$main-content-width;
+    width: utils.$main-content-width;
     padding-top: 1.5em;
 }
 

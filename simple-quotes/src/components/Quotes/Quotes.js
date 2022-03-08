@@ -1,4 +1,5 @@
 import React from 'react';
+import './Quotes.css';
 
 //Components
 import Nav from '../Nav/Nav';

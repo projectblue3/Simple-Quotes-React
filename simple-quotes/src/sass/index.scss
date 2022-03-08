@@ -1,0 +1,39 @@
+//Imports
+@use 'utils';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100vh;
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: utils.$light-bg;
+}
+
+.comp-parent {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.page-header {
+    background: utils.$nav-bg;
+    position: fixed;
+    @include utils.align-head-foot;
+}
+
+.page-content {
+    width: utils.$main-content-width;
+}
+
+.page-footer {
+    @include utils.align-head-foot;
+}

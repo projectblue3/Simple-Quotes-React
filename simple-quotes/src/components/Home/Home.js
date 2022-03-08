@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import gitLogo from '../../icons/GitHub-Mark-Light-64px.png';
 import liLogo from '../../icons/LI-In-Bug-White.png';
 import instaLogo from '../../icons/instagram-white.png';
+import './Home.css';
 
 //Components
 import Nav from '../Nav/Nav';
