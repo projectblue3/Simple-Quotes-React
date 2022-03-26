@@ -24,7 +24,7 @@ const Nav = (props) => {
 
     function searchHandler(e) {
         e.preventDefault();
-        navigate(`/search?q=${searchText}`, { replace: true });
+        navigate(`/search?q=${searchText}`);
     }
 
     //jsx

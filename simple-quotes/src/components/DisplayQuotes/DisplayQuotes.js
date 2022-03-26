@@ -54,6 +54,7 @@ const DisplayQuotes = (props) => {
     //jsx
     return (
         <div className="quotes-container">
+            {!quotes.length > 0 && <h3 className="big-home-heading">No Quotes</h3>}
             {quotes.map((q) => {
                 return (
                     <div className="quotes-item" key={q.id}>

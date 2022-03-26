@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import './AuthorQuotes.css';
 
 //Components
@@ -11,6 +11,9 @@ import Footer from '../Footer/Footer';
 import Popup from '../Popup/Popup';
 
 const AuthorQuotes = (props) => {
+    //navigate
+    const navigate = useNavigate();
+
     //Get ID from URL
     const params = useParams();
 
@@ -19,7 +22,6 @@ const AuthorQuotes = (props) => {
     const [editAuthorDisplay, setEditAuthorDisplay] = useState(false);
 
     //hooks
-
     //grab author info from api
     useEffect(() => {
         (async function () {
@@ -33,6 +35,10 @@ const AuthorQuotes = (props) => {
                     console.log(error.response.data);
                     console.log(error.response.status);
                     console.log(error.response.headers);
+
+                    if (error.response.status === 404) {
+                        navigate('/404');
+                    }
                 } else if (error.request) {
                     // The request was made but no response was received
                     // `error.request` is an instance of XMLHttpRequest in the browser and an instance of

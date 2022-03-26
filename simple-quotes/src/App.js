@@ -17,6 +17,7 @@ function App() {
                 <Route path="/author/:id" element={<AuthorQuotes />}></Route>
                 <Route path="/authors" element={<Authors />}></Route>
                 <Route path="/search" element={<SearchResults />}></Route>
+                <Route path="/404" element={<NotFound />}></Route>
                 <Route path="*" element={<NotFound />}></Route>
             </Routes>
         </BrowserRouter>

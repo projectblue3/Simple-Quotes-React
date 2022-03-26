@@ -6,4 +6,5 @@ make it refresh on every submit
 improve feedback to user
 add warning on delete and edit
 create mobile layout
-create 404 for items that dont exist
+improve user feedback
+do form and 404 styling
