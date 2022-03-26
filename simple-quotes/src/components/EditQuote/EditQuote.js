@@ -12,8 +12,6 @@ const EditQuote = (props) => {
 
     //handles patch requests
     const patchHandler = async (e) => {
-        e.preventDefault();
-
         const patchData = [];
 
         if (oldQuoteText !== quoteText) {
@@ -50,8 +48,6 @@ const EditQuote = (props) => {
 
     //handles delete requests
     const deleteHandler = async (e) => {
-        e.preventDefault();
-
         try {
             await axios.delete(`/api/quotes/${props.quote.id}`);
         } catch (error) {
@@ -89,12 +85,7 @@ const EditQuote = (props) => {
                     />
                 </div>
                 <div className="form-group">
-                    <input
-                        type="checkbox"
-                        id="quoteIsFeatured"
-                        checked={quoteFeatured}
-                        onChange={handleChecked}
-                    />
+                    <input type="checkbox" id="quoteIsFeatured" checked={quoteFeatured} onChange={handleChecked} />
                     <label htmlFor="quoteIsFeatured">Featured</label>
                 </div>
                 <button type="submit" className="submit-btn" tabIndex={2}>

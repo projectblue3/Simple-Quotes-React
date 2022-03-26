@@ -36,15 +36,12 @@ const NewQuote = (props) => {
 
     //handle post requests
     const postHandler = async (e) => {
-        e.preventDefault();
         try {
             const quote = await axios.post('/api/quotes/', {
                 authorId: authorSelected,
                 text: quoteText,
                 isFeatured: quoteFeatured,
             });
-
-            navigate(`/author/${quote.data.authorId}`, { replace: true });
         } catch (error) {
             if (error.response) {
                 console.log(error.response.data);

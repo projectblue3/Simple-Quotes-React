@@ -27,7 +27,7 @@ const NewAuthor = (props) => {
                 IsFeatured: authorFeatured,
             });
 
-            navigate(`/author/${author.data.id}`, { replace: true });
+            navigate(`/author/${author.data.id}`);
         } catch (error) {
             if (error.response) {
                 console.log(error.response.data);

@@ -1,7 +1,11 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const EditAuthor = (props) => {
+    //navigation
+    const navigate = useNavigate();
+
     //first render values
     const oldName = props.author.name;
     const oldDob = props.author.dateOfBirth;
@@ -20,8 +24,6 @@ const EditAuthor = (props) => {
 
     //handles patch requests
     const patchHandler = async (e) => {
-        e.preventDefault();
-
         const patchData = [];
 
         if (oldName !== authorName) {
@@ -95,6 +97,7 @@ const EditAuthor = (props) => {
 
         try {
             await axios.delete(`/api/authors/${props.author.id}`);
+            navigate('/authors');
         } catch (error) {
             if (error.response) {
                 console.log(error.response.data);
@@ -131,24 +134,11 @@ const EditAuthor = (props) => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="author-dob">Date Of Birth:</label>
-                    <input
-                        type="date"
-                        required
-                        id="author-dob"
-                        onChange={(e) => setAuthorDob(e.target.value)}
-                        value={authorDob}
-                        tabIndex={2}
-                    />
+                    <input type="date" required id="author-dob" onChange={(e) => setAuthorDob(e.target.value)} value={authorDob} tabIndex={2} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="author-dod">Date Of Death:</label>
-                    <input
-                        type="date"
-                        id="author-dod"
-                        onChange={(e) => setAuthorDod(e.target.value)}
-                        value={authorDod}
-                        tabIndex={3}
-                    />
+                    <input type="date" id="author-dod" onChange={(e) => setAuthorDod(e.target.value)} value={authorDod} tabIndex={3} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="author-job">Occupation:</label>
@@ -175,12 +165,7 @@ const EditAuthor = (props) => {
                 </div>
 
                 <div className="form-group">
-                    <input
-                        type="checkbox"
-                        id="authorIsFeatured"
-                        checked={authorFeatured}
-                        onChange={handleChecked}
-                    />
+                    <input type="checkbox" id="authorIsFeatured" checked={authorFeatured} onChange={handleChecked} />
                     <label htmlFor="authorIsFeatured">Featured</label>
                 </div>
 
