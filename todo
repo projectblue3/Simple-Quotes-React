@@ -1,10 +1,7 @@
 add some type of loading icon or the skeleton thing
 implement logging
 fix tab indexes
-fix error with empty values on author edit
-make it refresh on every submit
 improve feedback to user
 add warning on delete and edit
 create mobile layout
-improve user feedback
 do form and 404 styling

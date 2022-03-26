@@ -65,7 +65,9 @@ const NewQuote = (props) => {
         <div className="new-item-page">
             <form onSubmit={postHandler} className="new-item-form">
                 <div className="form-group">
-                    <label htmlFor="author">Author:</label>
+                    <label htmlFor="author">
+                        <span className="req-icon">*</span>Author:
+                    </label>
                     <select name="author" id="author-list" tabIndex={1} onChange={(e) => setAuthorSelected(parseInt(e.target.value))}>
                         {authors.map((a) => {
                             return (
@@ -78,7 +80,9 @@ const NewQuote = (props) => {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="quote-text">Quote Text:</label>
+                    <label htmlFor="quote-text">
+                        <span className="req-icon">*</span>Quote Text:
+                    </label>
                     <input
                         type="text"
                         required

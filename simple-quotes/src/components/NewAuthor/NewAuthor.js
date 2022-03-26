@@ -51,7 +51,9 @@ const NewAuthor = (props) => {
         <div className="new-item-page">
             <form onSubmit={postHandler} className="new-item-form">
                 <div className="form-group">
-                    <label htmlFor="author-name">Name:</label>
+                    <label htmlFor="author-name">
+                        <span className="req-icon">*</span>Name:
+                    </label>
                     <input
                         type="text"
                         required
@@ -63,7 +65,9 @@ const NewAuthor = (props) => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="author-dob">Date Of Birth:</label>
+                    <label htmlFor="author-dob">
+                        <span className="req-icon">*</span>Date Of Birth:
+                    </label>
                     <input type="date" required id="author-dob" onChange={(e) => setAuthorDob(e.target.value)} value={authorDob} tabIndex={2} />
                 </div>
                 <div className="form-group">
@@ -71,7 +75,9 @@ const NewAuthor = (props) => {
                     <input type="date" id="author-dod" onChange={(e) => setAuthorDod(e.target.value)} value={authorDod} tabIndex={3} />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="author-job">Occupation:</label>
+                    <label htmlFor="author-job">
+                        <span className="req-icon">*</span>Occupation:
+                    </label>
                     <input
                         type="text"
                         required
@@ -83,7 +89,9 @@ const NewAuthor = (props) => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="author-bio">Bio:</label>
+                    <label htmlFor="author-bio">
+                        <span className="req-icon">*</span>Bio:
+                    </label>
                     <textarea
                         required
                         id="author-bio"

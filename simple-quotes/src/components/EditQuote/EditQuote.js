@@ -73,7 +73,9 @@ const EditQuote = (props) => {
         <div className="edit-page">
             <form onSubmit={patchHandler} className="edit-form">
                 <div className="form-group">
-                    <label htmlFor="text">New Text:</label>
+                    <label htmlFor="text">
+                        <span className="req-icon">*</span>New Text:
+                    </label>
                     <input
                         type="text"
                         required
