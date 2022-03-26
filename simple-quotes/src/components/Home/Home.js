@@ -17,6 +17,11 @@ const Home = (props) => {
     const [searchText, setSearchText] = useState('');
 
     //hooks
+    //Change Tab Title
+    useEffect(() => {
+        document.title = 'Home - Simple Quotes';
+    }, []);
+
     //grab all quotes from api
     useEffect(() => {
         (async function () {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 //Components
@@ -9,6 +9,11 @@ import Footer from '../Footer/Footer';
 const SearchResults = (props) => {
     //Get query from url
     let [searchParams, setSearchParams] = useSearchParams();
+
+    //Change Tab Title
+    useEffect(() => {
+        document.title = 'Search Results - Simple Quotes';
+    }, []);
 
     //jsx
     return (

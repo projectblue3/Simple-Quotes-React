@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Quotes.css';
 
 //Components
@@ -7,6 +7,11 @@ import DisplayQuotes from '../DisplayQuotes/DisplayQuotes';
 import Footer from '../Footer/Footer';
 
 const Quotes = (props) => {
+    //Change Tab Title
+    useEffect(() => {
+        document.title = 'All Quotes - Simple Quotes';
+    }, []);
+
     //jsx
     return (
         <div className="comp-parent" id="quotes-page">

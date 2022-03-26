@@ -19,6 +19,7 @@ const AuthorQuotes = (props) => {
     const [editAuthorDisplay, setEditAuthorDisplay] = useState(false);
 
     //hooks
+
     //grab author info from api
     useEffect(() => {
         (async function () {
@@ -45,6 +46,11 @@ const AuthorQuotes = (props) => {
             }
         })();
     }, []);
+
+    //Change Tab Title
+    useEffect(() => {
+        document.title = `${author.name}'s Quotes - Simple Quotes`;
+    }, [author]);
 
     //handlers
     function handleCancel() {

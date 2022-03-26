@@ -1,5 +1,4 @@
 add some type of loading icon or the skeleton thing
-use state to adjust tab title
 implement logging
 fix tab indexes
 fix error with empty values on author edit
@@ -7,3 +6,4 @@ make it refresh on every submit
 improve feedback to user
 add warning on delete and edit
 create mobile layout
+create 404 for items that dont exist

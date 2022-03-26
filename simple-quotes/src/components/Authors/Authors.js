@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Authors.css';
 
 //Components
@@ -8,6 +8,11 @@ import DisplayAuthors from '../DisplayAuthors/DisplayAuthors';
 
 //jsx
 const Authors = (props) => {
+    //Change Tab Title
+    useEffect(() => {
+        document.title = 'All Authors - Simple Quotes';
+    }, []);
+
     return (
         <div className="comp-parent" id="authors-page">
             <header className="page-header">
