@@ -1,7 +1,7 @@
 {
   "name": "simple-quotes",
   "version": "0.1.0",
-  "proxy": "http://172.16.0.102:59730/",
+  "proxy": "http://172.16.0.103:59730/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",

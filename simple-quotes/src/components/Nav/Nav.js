@@ -47,13 +47,13 @@ const Nav = (props) => {
                     Authors
                 </Link>
 
-                <Link to="#" className="nav-link small new-item-link" onClick={() => setNewQuoteDisplay(true)}>
+                <button className="nav-link small new-item-link" onClick={() => setNewQuoteDisplay(true)}>
                     New Quote
-                </Link>
+                </button>
 
-                <Link to="#" className="nav-link small new-item-link" onClick={() => setNewAuthorDisplay(true)}>
+                <button className="nav-link small new-item-link" onClick={() => setNewAuthorDisplay(true)}>
                     New Author
-                </Link>
+                </button>
             </div>
 
             <div id="nav-search">
