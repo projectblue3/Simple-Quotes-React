@@ -1,0 +1,16 @@
+@use 'utils';
+
+.notfound-main {
+    @include utils.align-main;
+}
+
+#notfound-content {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.not-found-logo {
+    height: 480px;
+    width: 480px;
+}

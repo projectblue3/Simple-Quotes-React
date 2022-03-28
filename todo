@@ -1,7 +1,7 @@
 add some type of loading icon or the skeleton thing
 implement logging
 fix tab indexes
-improve feedback to user
+improve feedback to user (duplicate items, internal server errors)
 add warning on delete and edit
 create mobile layout
-do form and 404 styling
+do form styling
