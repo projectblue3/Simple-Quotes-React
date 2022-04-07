@@ -36,25 +36,3 @@ $reg-size: 1.3rem;
     bottom: 0;
     right: 0;
 }
-
-// Universal Elements
-.edit-button {
-    width: 24px;
-    height: 24px;
-    background: none;
-    color: $search-bg;
-    border: 1px solid $search-bg;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.edit-button:hover {
-    color: $dark-text;
-    border: 1px solid $dark-text;
-}
-
-.featured-text {
-    font-size: 0.9rem;
-    font-style: italic;
-    padding-left: 1em;
-}

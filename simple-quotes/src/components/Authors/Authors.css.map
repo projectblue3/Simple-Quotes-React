@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../../sass/_utils.scss","../../sass/Authors.scss"],"names":[],"mappings":"AAuCA,aACI,WACA,YACA,gBACA,MArCQ,QAsCR,yBACA,mBACA,eAGJ,mBACI,MA3CQ,KA4CR,sBAGJ,eACI,gBACA,kBACA,iBCvDJ,cDgBI,eACA,mCACA,aACA","file":"Authors.css"}
+{"version":3,"sourceRoot":"","sources":["../../sass/Authors.scss","../../sass/_utils.scss"],"names":[],"mappings":"AAEA,cCiBI,eACA,mCACA,aACA","file":"Authors.css"}

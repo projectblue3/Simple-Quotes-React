@@ -12,9 +12,8 @@
 
 .popup-content {
     z-index: 999;
-    background: utils.$light-bg;
-    height: 30vh;
-    width: 30vw;
-    border-radius: 10px;
+    background: utils.$dim-light-bg;
+    border-radius: 3px;
+    padding: 3em;
     @include utils.flex-align;
 }

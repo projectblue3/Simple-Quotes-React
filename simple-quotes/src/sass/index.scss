@@ -37,3 +37,86 @@ body {
 .page-footer {
     @include utils.align-head-foot;
 }
+
+//buttons
+.edit-button {
+    width: 24px;
+    height: 24px;
+    background: none;
+    color: utils.$search-bg;
+    border: 1px solid utils.$search-bg;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    color: utils.$dark-text;
+    border: 1px solid utils.$dark-text;
+}
+
+.form-button{
+    background: utils.$dark-text;
+    color: utils.$dim-light-bg;
+    border: none;
+    border-radius: 5px;
+    padding: 0.3em;
+    cursor: pointer;
+}
+
+.form-button:hover{
+    background: lighten(utils.$dark-text, 10%);
+}
+
+//special elements
+.featured-text {
+    font-size: 0.9rem;
+    font-style: italic;
+    padding-left: 1em;
+}
+
+//forms
+.item-form{
+    padding-top: 2em;
+}
+
+.form-group{
+    margin-bottom: 2.5em;
+}
+
+.form-text-box{
+    background: utils.$dim-light-bg;
+    min-width: 400px;
+    border: none;
+    border-bottom: 1px solid utils.$dark-text;
+    border-radius: 2px;
+    padding: 0.3em;
+    color: utils.$dark-text;
+    font-family: sans-serif;
+    font-size: utils.$reg-size;
+}
+
+.form-text-area{
+    resize: none;
+}
+
+.featured-group{
+    display: flex;
+    gap: 0.3em;
+    color: utils.$dark-text;
+    font-size: utils.$reg-size;
+    align-items: center;
+}
+
+.labeled-group{
+    display: flex;
+    flex-direction: column;
+}
+.labeled-group label {
+    padding: 0.5em;
+}
+
+.buttons-group{
+    display: flex;
+    gap: 0.5em;
+    margin-bottom: 0;
+}

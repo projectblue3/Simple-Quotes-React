@@ -6,6 +6,9 @@ const EditAuthor = (props) => {
     //navigation
     const navigate = useNavigate();
 
+    //get current date
+    const date = new Date();
+
     //first render values
     const oldName = props.author.name;
     const oldDob = props.author.dateOfBirth;
@@ -119,75 +122,85 @@ const EditAuthor = (props) => {
     //jsx
     return (
         <div className="edit-page">
+            <h2 className="big-home-heading">Edit Author</h2>
             <form onSubmit={patchHandler} className="edit-form">
-                <div className="form-group">
-                    <label htmlFor="author-name">
-                        <span className="req-icon">*</span>Name:
-                    </label>
+                <div className="form-group labeled-group">
+                    <label htmlFor="author-name">Name*</label>
                     <input
                         type="text"
                         required
                         id="author-name"
-                        placeholder="Enter their name"
+                        className="form-text-box"
                         onChange={(e) => setAuthorName(e.target.value)}
                         value={authorName}
                         tabIndex={1}
                     />
                 </div>
-                <div className="form-group">
-                    <label htmlFor="author-dob">
-                        <span className="req-icon">*</span>Date Of Birth:
-                    </label>
-                    <input type="date" required id="author-dob" onChange={(e) => setAuthorDob(e.target.value)} value={authorDob} tabIndex={2} />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="author-dod">Date Of Death:</label>
-                    <input type="date" id="author-dod" onChange={(e) => setAuthorDod(e.target.value)} value={authorDod} tabIndex={3} />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="author-job">
-                        <span className="req-icon">*</span>Occupation:
-                    </label>
+                <div className="form-group labeled-group">
+                    <label htmlFor="author-job">Occupation*</label>
                     <input
                         type="text"
                         required
                         id="author-job"
-                        placeholder="Enter their occupation"
+                        className="form-text-box"
                         onChange={(e) => setAuthorJob(e.target.value)}
                         value={authorJob}
                         tabIndex={4}
                     />
                 </div>
-                <div className="form-group">
-                    <label htmlFor="author-bio">
-                        <span className="req-icon">*</span>Bio:
-                    </label>
+                <div className="form-group labeled-group">
+                    <label htmlFor="author-bio">Biography*</label>
                     <textarea
                         required
                         id="author-bio"
-                        placeholder="Enter their biography"
+                        className="form-text-box form-text-area"
                         onChange={(e) => setAuthorBio(e.target.value)}
                         value={authorBio}
                         tabIndex={5}
                     />
                 </div>
-
-                <div className="form-group">
+                <div className="form-group labeled-group">
+                    <label htmlFor="author-dob">
+                        Date Of Birth<span className="req-icon">*</span>
+                    </label>
+                    <input
+                        type="date"
+                        required
+                        id="author-dob"
+                        className="form-text-box"
+                        onChange={(e) => setAuthorDob(e.target.value)}
+                        value={authorDob}
+                        tabIndex={2}
+                    />
+                </div>
+                <div className="form-group labeled-group">
+                    <label htmlFor="author-dod">Date Of Death:</label>
+                    <input
+                        type="date"
+                        id="author-dod"
+                        className="form-text-box"
+                        onChange={(e) => setAuthorDod(e.target.value)}
+                        value={authorDod}
+                        tabIndex={3}
+                    />
+                </div>
+                <div className="form-group featured-group">
                     <input type="checkbox" id="authorIsFeatured" checked={authorFeatured} onChange={handleChecked} />
                     <label htmlFor="authorIsFeatured">Featured</label>
                 </div>
+                <div className="form-group buttons-group">
+                    <button type="submit" className="submit-button form-button" tabIndex={6}>
+                        Submit
+                    </button>
 
-                <button type="submit" className="submit-btn" tabIndex={6}>
-                    Submit
-                </button>
+                    <button className="delete-button form-button" onClick={deleteHandler} tabIndex={7}>
+                        Delete
+                    </button>
 
-                <button className="delete-button" onClick={deleteHandler} tabIndex={7}>
-                    Delete
-                </button>
-
-                <button className="cancel-button" type="button" onClick={props.onCancel} tabIndex={8}>
-                    Cancel
-                </button>
+                    <button className="cancel-button form-button" type="button" onClick={props.onCancel} tabIndex={8}>
+                        Cancel
+                    </button>
+                </div>
             </form>
         </div>
     );

@@ -71,36 +71,37 @@ const EditQuote = (props) => {
     //jsx
     return (
         <div className="edit-page">
-            <form onSubmit={patchHandler} className="edit-form">
+            <h2 className="big-home-heading">Edit Quote</h2>
+            <form onSubmit={patchHandler} className="item-form">
                 <div className="form-group">
-                    <label htmlFor="text">
-                        <span className="req-icon">*</span>New Text:
-                    </label>
-                    <input
+                    <textarea
                         type="text"
                         required
                         id="text"
-                        placeholder="Enter Edits Here"
+                        className="form-text-box form-text-area"
                         onChange={(e) => setQuoteText(e.target.value)}
                         value={quoteText}
                         tabIndex={1}
                     />
                 </div>
                 <div className="form-group">
-                    <input type="checkbox" id="quoteIsFeatured" checked={quoteFeatured} onChange={handleChecked} />
+                    <input type="checkbox" id="quoteIsFeatured" className="featured-check" checked={quoteFeatured} onChange={handleChecked} />
                     <label htmlFor="quoteIsFeatured">Featured</label>
                 </div>
-                <button type="submit" className="submit-btn" tabIndex={2}>
-                    Submit
-                </button>
 
-                <button className="delete-button" onClick={deleteHandler} tabIndex={3}>
-                    Delete
-                </button>
+                <div className="form-group buttons-group">
+                    <button type="submit" className="submit-button form-button" tabIndex={2}>
+                        Submit
+                    </button>
 
-                <button className="cancel-button" type="button" onClick={props.onCancel} tabIndex={4}>
-                    Cancel
-                </button>
+                    <button className="delete-button form-button" onClick={deleteHandler} tabIndex={3}>
+                        Delete
+                    </button>
+
+                    <button className="cancel-button form-button" type="button" onClick={props.onCancel} tabIndex={4}>
+                        Cancel
+                    </button>
+                </div>
             </form>
         </div>
     );

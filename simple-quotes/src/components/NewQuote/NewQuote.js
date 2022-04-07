@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './NewQuote.css';
 
 const NewQuote = (props) => {
     //states
@@ -63,12 +64,34 @@ const NewQuote = (props) => {
     //jsx
     return (
         <div className="new-item-page">
-            <form onSubmit={postHandler} className="new-item-form">
+            <h2 className="big-home-heading">New Quote</h2>
+            <form onSubmit={postHandler} className="item-form">
                 <div className="form-group">
-                    <label htmlFor="author">
-                        <span className="req-icon">*</span>Author:
-                    </label>
-                    <select name="author" id="author-list" tabIndex={1} onChange={(e) => setAuthorSelected(parseInt(e.target.value))}>
+                    <textarea
+                        type="text"
+                        required
+                        id="quote-text"
+                        rows={1}
+                        className="form-text-box form-text-area"
+                        placeholder="Quote"
+                        onChange={(e) => setQuoteText(e.target.value)}
+                        value={quoteText}
+                        tabIndex={2}
+                    />
+                </div>
+
+                <div className="form-group">
+                    <select
+                        name="author"
+                        id="author-list"
+                        className="form-text-box"
+                        required
+                        tabIndex={1}
+                        onChange={(e) => setAuthorSelected(parseInt(e.target.value))}
+                    >
+                        <option value="" disabled selected>
+                            Author
+                        </option>
                         {authors.map((a) => {
                             return (
                                 <option value={a.id} className="author-list-item" key={a.id}>
@@ -79,31 +102,20 @@ const NewQuote = (props) => {
                     </select>
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="quote-text">
-                        <span className="req-icon">*</span>Quote Text:
-                    </label>
-                    <input
-                        type="text"
-                        required
-                        id="quote-text"
-                        placeholder="Enter Quote Text"
-                        onChange={(e) => setQuoteText(e.target.value)}
-                        value={quoteText}
-                        tabIndex={2}
-                    />
+                <div className="form-group featured-group">
+                    <input type="checkbox" id="quoteIsFeaturedC" className="featured-check" checked={quoteFeatured} onChange={handleChecked} />
+                    <label htmlFor="quoteIsFeaturedC">Featured?</label>
                 </div>
-                <div className="form-group">
-                    <input type="checkbox" id="quoteIsFeaturedC" checked={quoteFeatured} onChange={handleChecked} />
-                    <label htmlFor="quoteIsFeaturedC">Featured</label>
-                </div>
-                <button type="submit" className="submit-btn" tabIndex={3}>
-                    Submit
-                </button>
 
-                <button className="cancel-button" type="button" onClick={props.onCancel} tabIndex={4}>
-                    Cancel
-                </button>
+                <div className="form-group buttons-group">
+                    <button type="submit" className="submit-button form-button" tabIndex={3}>
+                        Submit
+                    </button>
+
+                    <button className="cancel-button form-button" type="button" onClick={props.onCancel} tabIndex={4}>
+                        Cancel
+                    </button>
+                </div>
             </form>
         </div>
     );
