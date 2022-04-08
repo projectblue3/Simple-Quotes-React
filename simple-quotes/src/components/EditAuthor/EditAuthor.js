@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import autosize from 'autosize';
 
 const EditAuthor = (props) => {
     //navigation
@@ -8,6 +9,9 @@ const EditAuthor = (props) => {
 
     //get current date
     const date = new Date();
+
+    //Enable autosize for textarea
+    autosize(document.querySelector('textarea'));
 
     //first render values
     const oldName = props.author.name;

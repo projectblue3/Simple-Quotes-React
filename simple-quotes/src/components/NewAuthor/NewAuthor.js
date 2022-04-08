@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import autosize from 'autosize';
 
 const NewAuthor = (props) => {
     //states
@@ -13,6 +14,9 @@ const NewAuthor = (props) => {
 
     //history
     let navigate = useNavigate();
+
+    //Enable autosize for textarea
+    autosize(document.querySelector('textarea'));
 
     //get current date
     const date = new Date();
@@ -88,6 +92,7 @@ const NewAuthor = (props) => {
                         id="author-bio"
                         className="form-text-box form-text-area"
                         placeholder="Enter Their Biography"
+                        rows={1}
                         onChange={(e) => setAuthorBio(e.target.value)}
                         value={authorBio}
                         tabIndex={5}

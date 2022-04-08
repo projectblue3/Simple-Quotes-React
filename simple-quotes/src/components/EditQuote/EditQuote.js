@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import autosize from 'autosize';
 
 const EditQuote = (props) => {
     //first render values
@@ -9,6 +10,9 @@ const EditQuote = (props) => {
     //states
     const [quoteText, setQuoteText] = useState(props.quote.text);
     const [quoteFeatured, setQuoteFeatured] = useState(props.quote.isFeatured);
+
+    //Enable autosize for textarea
+    autosize(document.querySelector('textarea'));
 
     //handles patch requests
     const patchHandler = async (e) => {

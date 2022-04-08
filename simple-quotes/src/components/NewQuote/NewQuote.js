@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './NewQuote.css';
+import autosize from 'autosize';
 
 const NewQuote = (props) => {
     //states
@@ -12,6 +13,9 @@ const NewQuote = (props) => {
 
     //history
     let navigate = useNavigate();
+
+    //Enable autosize for textarea
+    autosize(document.querySelector('textarea'));
 
     //get all authors
     useEffect(() => {
