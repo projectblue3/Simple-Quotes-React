@@ -80,8 +80,8 @@ const AuthorQuotes = (props) => {
                         {author.name}'s Quotes {author.isFeatured && <span className="featured-text">Featured Author</span>}
                     </h2>
 
-                    <button className="edit-button" onClick={() => handleEdit()}>
-                        E
+                    <button className="edit-button form-button" onClick={() => handleEdit()}>
+                        Edit
                     </button>
 
                     <div className="author-details">

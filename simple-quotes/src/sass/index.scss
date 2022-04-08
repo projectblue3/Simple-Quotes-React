@@ -39,21 +39,6 @@ body {
 }
 
 //buttons
-.edit-button {
-    width: 24px;
-    height: 24px;
-    background: none;
-    color: utils.$search-bg;
-    border: 1px solid utils.$search-bg;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.edit-button:hover {
-    color: utils.$dark-text;
-    border: 1px solid utils.$dark-text;
-}
-
 .form-button{
     background: utils.$dark-text;
     color: utils.$dim-light-bg;

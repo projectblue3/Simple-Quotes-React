@@ -70,8 +70,8 @@ const DisplayQuotes = (props) => {
 
                         {q.isFeatured && <span className="featured-text">Featured Quote</span>}
 
-                        <button className="edit-button" onClick={() => handleEdit(q)}>
-                            E
+                        <button className="edit-button form-button" onClick={() => handleEdit(q)}>
+                            Edit
                         </button>
                     </div>
                 );
