@@ -13,7 +13,7 @@ html {
 }
 
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    @include utils.google-font;
     background: utils.$light-bg;
 }
 
@@ -54,9 +54,22 @@ body {
 
 //special elements
 .featured-text {
-    font-size: 0.9rem;
+    font-size: utils.$fet-size;
     font-style: italic;
     padding-left: 1em;
+}
+
+//headings
+.big-home-heading {
+    font-size: 3rem;
+    align-self: center;
+    color: utils.$dark-text;
+}
+
+.home-heading {
+    color: utils.$dark-text;
+    font-size: 1.8rem;
+    margin-bottom: 0.5em;
 }
 
 //forms
@@ -76,7 +89,7 @@ body {
     border-radius: 2px;
     padding: 0.3em;
     color: utils.$dark-text;
-    font-family: sans-serif;
+    @include utils.google-font;
     font-size: utils.$reg-size;
 }
 

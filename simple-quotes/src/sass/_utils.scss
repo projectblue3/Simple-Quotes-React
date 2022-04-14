@@ -1,3 +1,6 @@
+//Google Font
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
 //Variables
 $light-bg: #ffffff;
 $dim-light-bg: darken($light-bg, 3%);
@@ -7,7 +10,12 @@ $search-border: #43c293;
 $search-bg: darken($nav-bg, 10%);
 $dark-text: #444444;
 $main-content-width: 70vw;
-$reg-size: 1.3rem;
+$reg-size: 1.6rem;
+$fet-size:1.2rem;
+$h1-size: 3rem;
+$h2-size: 1.8rem;
+$h3-size: 1.6rem;
+$sl-size: 2rem;
 
 //Mixins
 @mixin align-head-foot {
@@ -35,4 +43,8 @@ $reg-size: 1.3rem;
     height: 100vh;
     bottom: 0;
     right: 0;
+}
+
+@mixin google-font{
+    font-family: 'Nunito', sans-serif;
 }
