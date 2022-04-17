@@ -34,10 +34,15 @@ const DisplayAuthors = (props) => {
             {authors.map((a) => {
                 return (
                     <div className="authors-item" key={a.id}>
-                        <Link className="author-name" to={`/author/${a.id}`}>
-                            {a.name}
-                        </Link>
-                        {a.isFeatured && <span className="featured-text">Featured</span>}
+                        <div className="item-group">
+                            <Link className="author-name" to={`/author/${a.id}`}>
+                                {a.name}
+                            </Link>
+                        </div>
+
+                        <div className="item-group">
+                            {a.isFeatured && <span className="featured-text">Featured Author</span>}
+                        </div>
                     </div>
                 );
             })}

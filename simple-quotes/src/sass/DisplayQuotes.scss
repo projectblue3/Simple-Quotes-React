@@ -18,15 +18,18 @@
 
 .quotes-item {
     width: 310px;
-    height: 150px;
+    min-height: 150px;
     background: utils.$dim-light-bg;
     border-radius: 5px;
     padding: 1em;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
 
     .author-name::before {
         content: '- ';
     }
+}
+
+.quote-edit {
+    display: flex;
+    justify-content: flex-end;
 }

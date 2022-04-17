@@ -58,28 +58,43 @@ const DisplayQuotes = (props) => {
             {quotes.map((q) => {
                 return (
                     <div className="quotes-item" key={q.id}>
-                        <p className="quote-text">{q.text}</p>
+                        <div className="item-group quote-edit">
+                            <button className="edit-button form-button" onClick={() => handleEdit(q)}>
+                                Edit
+                            </button>
+                        </div>
+
+                        <div className="item-group">
+                            <p className="quote-text">{q.text}</p>
+                        </div>
 
                         {q.authorId ? (
-                            <Link to={`/author/${q.authorId}`} className="author-name">
-                                {q.authorName}
-                            </Link>
+                            <div className="item-group">
+                                <Link to={`/author/${q.authorId}`} className="author-name">
+                                    {q.authorName}
+                                </Link>
+                            </div>
                         ) : (
-                            <p className="author-name">{q.authorName}</p>
+                            <div className="item-group">
+                                <p className="author-name">{q.authorName}</p>
+                            </div>
                         )}
 
-                        {q.isFeatured && <span className="featured-text">Featured Quote</span>}
-
-                        <button className="edit-button form-button" onClick={() => handleEdit(q)}>
-                            Edit
-                        </button>
+                        {q.isFeatured && (
+                            <div className="item-group">
+                                <span className="featured-text">Featured Quote</span>
+                            </div>
+                        )}
                     </div>
                 );
             })}
 
             {editDisplay && (
                 <div className="edit-container">
-                    <Popup content={<EditQuote onCancel={handleCancel} quote={quoteToEdit} />} onCancel={handleCancel} />
+                    <Popup
+                        content={<EditQuote onCancel={handleCancel} quote={quoteToEdit} />}
+                        onCancel={handleCancel}
+                    />
                 </div>
             )}
         </div>
