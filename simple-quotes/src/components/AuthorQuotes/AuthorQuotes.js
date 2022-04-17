@@ -77,7 +77,8 @@ const AuthorQuotes = (props) => {
             <main className="author-quotes-main">
                 <div className="page-content" id="author-quotes-content">
                     <h2 className="big-home-heading">
-                        {author.name}'s Quotes {author.isFeatured && <span className="featured-text">Featured Author</span>}
+                        {author.name}'s Quotes{' '}
+                        {author.isFeatured && <span className="featured-text">Featured Author</span>}
                     </h2>
 
                     <button className="edit-button form-button" onClick={() => handleEdit()}>
@@ -86,21 +87,21 @@ const AuthorQuotes = (props) => {
 
                     <div className="author-details">
                         <p className="author-info">
-                            Date Of Birth:
+                            <h3 className="small-home-heading">Date Of Birth:</h3>
                             <span className="info-text"> {author.dateOfBirth}</span>
                         </p>
                         {author.dateOfDeath && (
                             <p className="author-info">
-                                Date Of Death:
+                                <h3 className="small-home-heading">Date Of Death:</h3>
                                 <span className="info-text"> {author.dateOfDeath}</span>
                             </p>
                         )}
                         <p className="author-info">
-                            Occupation:
+                            <h3 className="small-home-heading">Occupation:</h3>
                             <span className="info-text"> {author.occupation}</span>
                         </p>
                         <p className="author-info">
-                            Biography:
+                            <h3 className="small-home-heading">Biography:</h3>
                             <span className="info-text"> {author.bio}</span>
                         </p>
                     </div>
@@ -108,7 +109,10 @@ const AuthorQuotes = (props) => {
 
                     {editAuthorDisplay && (
                         <div className="edit-container">
-                            <Popup content={<EditAuthor onCancel={handleCancel} author={author} />} onCancel={handleCancel} />
+                            <Popup
+                                content={<EditAuthor onCancel={handleCancel} author={author} />}
+                                onCancel={handleCancel}
+                            />
                         </div>
                     )}
                 </div>

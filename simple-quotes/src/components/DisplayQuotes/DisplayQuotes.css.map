@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../../sass/DisplayQuotes.scss","../../sass/_utils.scss"],"names":[],"mappings":"AAEA,kBACI,aACA,eACA,QACA,iBACA,gBAEA,oBACI,MCJI,QDKJ,qBAGJ,0BACI,MCRI,KDYZ,aACI,YACA,aACA,WCpBW,QDqBX,kBACA,YACA,aACA,sBACA,uBAEA,kCACI","file":"DisplayQuotes.css"}
+{"version":3,"sourceRoot":"","sources":["../../sass/_utils.scss","../../sass/DisplayQuotes.scss"],"names":[],"mappings":"AACQ,sECCR,kBACI,aACA,eACA,QACA,gBAEA,oBACI,cACA,qBAGJ,0BACI,MDJI,KCQZ,aACI,YACA,aACA,WDhBW,QCiBX,kBACA,YACA,aACA,sBACA,uBAEA,kCACI","file":"DisplayQuotes.css"}

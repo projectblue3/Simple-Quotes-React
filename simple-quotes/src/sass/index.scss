@@ -14,6 +14,8 @@ html {
 
 body {
     @include utils.google-font;
+    font-size: utils.$reg-size;
+    color: utils.$dark-text;
     background: utils.$light-bg;
 }
 
@@ -38,8 +40,12 @@ body {
     @include utils.align-head-foot;
 }
 
+.page-description {
+    padding: 0.8em 0;
+}
+
 //buttons
-.form-button{
+.form-button {
     background: utils.$dark-text;
     color: utils.$dim-light-bg;
     border: none;
@@ -48,7 +54,7 @@ body {
     cursor: pointer;
 }
 
-.form-button:hover{
+.form-button:hover {
     background: lighten(utils.$dark-text, 10%);
 }
 
@@ -61,27 +67,28 @@ body {
 
 //headings
 .big-home-heading {
-    font-size: 3rem;
+    font-size: utils.$h1-size;
     align-self: center;
-    color: utils.$dark-text;
 }
 
 .home-heading {
-    color: utils.$dark-text;
-    font-size: 1.8rem;
+    font-size: utils.$h2-size;
     margin-bottom: 0.5em;
+}
+.small-home-heading {
+    font-size: utils.$h3-size;
 }
 
 //forms
-.item-form{
+.item-form {
     padding-top: 2em;
 }
 
-.form-group{
+.form-group {
     margin-bottom: 2.5em;
 }
 
-.form-text-box{
+.form-text-box {
     background: utils.$dim-light-bg;
     min-width: 400px;
     border: none;
@@ -93,11 +100,11 @@ body {
     font-size: utils.$reg-size;
 }
 
-.form-text-area{
+.form-text-area {
     resize: none;
 }
 
-.featured-group{
+.featured-group {
     display: flex;
     gap: 0.3em;
     color: utils.$dark-text;
@@ -105,7 +112,7 @@ body {
     align-items: center;
 }
 
-.labeled-group{
+.labeled-group {
     display: flex;
     flex-direction: column;
 }
@@ -113,7 +120,7 @@ body {
     padding: 0.5em;
 }
 
-.buttons-group{
+.buttons-group {
     display: flex;
     gap: 0.5em;
     margin-bottom: 0;

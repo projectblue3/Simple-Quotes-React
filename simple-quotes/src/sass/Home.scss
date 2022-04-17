@@ -21,18 +21,6 @@
     }
 }
 
-.big-home-heading {
-    font-size: 3rem;
-    align-self: center;
-    color: utils.$dark-text;
-}
-
-.home-heading {
-    color: utils.$dark-text;
-    font-size: 1.8rem;
-    margin-bottom: 0.5em;
-}
-
 .content-top {
     display: flex;
     flex-direction: column;
@@ -116,7 +104,7 @@
 
 .home-sl-link span {
     color: utils.$light-bg;
-    font-size: 2rem;
+    font-size: utils.$sl-size;
     padding-left: 0.7em;
 }
 

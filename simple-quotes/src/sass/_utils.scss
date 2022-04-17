@@ -11,11 +11,13 @@ $search-bg: darken($nav-bg, 10%);
 $dark-text: #444444;
 $main-content-width: 70vw;
 $reg-size: 1.6rem;
-$fet-size:1.2rem;
+$fet-size: 1.2rem;
 $h1-size: 3rem;
 $h2-size: 1.8rem;
 $h3-size: 1.6rem;
 $sl-size: 2rem;
+$nav-size: 1.8rem;
+$title-size: 2.5rem;
 
 //Mixins
 @mixin align-head-foot {
@@ -45,6 +47,6 @@ $sl-size: 2rem;
     right: 0;
 }
 
-@mixin google-font{
+@mixin google-font {
     font-family: 'Nunito', sans-serif;
 }
