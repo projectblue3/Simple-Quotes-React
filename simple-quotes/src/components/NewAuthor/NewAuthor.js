@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import autosize from 'autosize';
 
@@ -11,6 +11,8 @@ const NewAuthor = (props) => {
     const [authorJob, setAuthorJob] = useState('');
     const [authorBio, setAuthorBio] = useState('');
     const [authorFeatured, setAuthorFeatured] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+    const [errorExists, setErrorExists] = useState(false);
 
     //history
     let navigate = useNavigate();
@@ -37,9 +39,8 @@ const NewAuthor = (props) => {
             navigate(`/author/${author.data.id}`);
         } catch (error) {
             if (error.response) {
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
+                setErrorMessage(error.response.data.messages[0]);
+                setErrorExists(true);
             } else if (error.request) {
                 console.log(error.request);
             } else {
@@ -47,6 +48,11 @@ const NewAuthor = (props) => {
             }
         }
     };
+
+    //clear error message on text change
+    useEffect(() => {
+        setErrorExists(false);
+    }, [authorName]);
 
     //handle quote featured checkbox
     function handleChecked() {
@@ -124,8 +130,18 @@ const NewAuthor = (props) => {
                     />
                 </div>
                 <div className="form-group featured-group">
-                    <input type="checkbox" id="authorIsFeaturedC" className="featured-check" checked={authorFeatured} onChange={handleChecked} />
+                    <input
+                        type="checkbox"
+                        id="authorIsFeaturedC"
+                        className="featured-check"
+                        checked={authorFeatured}
+                        onChange={handleChecked}
+                    />
                     <label htmlFor="authorIsFeaturedC">Featured</label>
+                </div>
+
+                <div className="form-group error-group">
+                    {errorExists && <p className="error-text">{errorMessage}</p>}
                 </div>
 
                 <div className="form-group buttons-group">
@@ -133,7 +149,12 @@ const NewAuthor = (props) => {
                         Submit
                     </button>
 
-                    <button className="cancel-button form-button" type="button" onClick={props.onCancel} tabIndex={7}>
+                    <button
+                        className="cancel-button form-button"
+                        type="button"
+                        onClick={props.onCancel}
+                        tabIndex={7}
+                    >
                         Cancel
                     </button>
                 </div>

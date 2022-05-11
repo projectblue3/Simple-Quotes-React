@@ -1,6 +1,7 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import autosize from 'autosize';
+import { useNavigate } from 'react-router-dom';
 
 const EditQuote = (props) => {
     //first render values
@@ -10,12 +11,18 @@ const EditQuote = (props) => {
     //states
     const [quoteText, setQuoteText] = useState(props.quote.text);
     const [quoteFeatured, setQuoteFeatured] = useState(props.quote.isFeatured);
+    const [errorMessage, setErrorMessage] = useState('');
+    const [errorExists, setErrorExists] = useState(false);
+
+    //history
+    let navigate = useNavigate();
 
     //Enable autosize for textarea
     autosize(document.querySelector('textarea'));
 
     //handles patch requests
     const patchHandler = async (e) => {
+        e.preventDefault();
         const patchData = [];
 
         if (oldQuoteText !== quoteText) {
@@ -36,11 +43,11 @@ const EditQuote = (props) => {
 
         try {
             await axios.patch(`/api/quotes/${props.quote.id}`, patchData);
+            navigate(`/quotes/`);
         } catch (error) {
             if (error.response) {
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
+                setErrorMessage(error.response.data.messages[0]);
+                setErrorExists(true);
             } else if (error.request) {
                 console.log(error.request);
             } else {
@@ -52,13 +59,14 @@ const EditQuote = (props) => {
 
     //handles delete requests
     const deleteHandler = async (e) => {
+        e.preventDefault();
         try {
             await axios.delete(`/api/quotes/${props.quote.id}`);
+            navigate(`/quotes/`);
         } catch (error) {
             if (error.response) {
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
+                setErrorMessage(error.response.data.messages[0]);
+                setErrorExists(true);
             } else if (error.request) {
                 console.log(error.request);
             } else {
@@ -66,6 +74,11 @@ const EditQuote = (props) => {
             }
         }
     };
+
+    //clear error message on text change
+    useEffect(() => {
+        setErrorExists(false);
+    }, [quoteText]);
 
     //handle quote featured checkbox
     function handleChecked() {
@@ -89,8 +102,18 @@ const EditQuote = (props) => {
                     />
                 </div>
                 <div className="form-group">
-                    <input type="checkbox" id="quoteIsFeatured" className="featured-check" checked={quoteFeatured} onChange={handleChecked} />
+                    <input
+                        type="checkbox"
+                        id="quoteIsFeatured"
+                        className="featured-check"
+                        checked={quoteFeatured}
+                        onChange={handleChecked}
+                    />
                     <label htmlFor="quoteIsFeatured">Featured</label>
+                </div>
+
+                <div className="form-group error-group">
+                    {errorExists && <p className="error-text">{errorMessage}</p>}
                 </div>
 
                 <div className="form-group buttons-group">
@@ -102,7 +125,12 @@ const EditQuote = (props) => {
                         Delete
                     </button>
 
-                    <button className="cancel-button form-button" type="button" onClick={props.onCancel} tabIndex={4}>
+                    <button
+                        className="cancel-button form-button"
+                        type="button"
+                        onClick={props.onCancel}
+                        tabIndex={4}
+                    >
                         Cancel
                     </button>
                 </div>

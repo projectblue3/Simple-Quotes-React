@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import autosize from 'autosize';
 
@@ -28,9 +28,12 @@ const EditAuthor = (props) => {
     const [authorJob, setAuthorJob] = useState(props.author.occupation);
     const [authorBio, setAuthorBio] = useState(props.author.bio);
     const [authorFeatured, setAuthorFeatured] = useState(props.author.isFeatured);
+    const [errorMessage, setErrorMessage] = useState('');
+    const [errorExists, setErrorExists] = useState(false);
 
     //handles patch requests
     const patchHandler = async (e) => {
+        e.preventDefault();
         const patchData = [];
 
         if (oldName !== authorName) {
@@ -84,11 +87,11 @@ const EditAuthor = (props) => {
         try {
             console.log(patchData);
             await axios.patch(`/api/authors/${props.author.id}`, patchData);
+            navigate(`/author/${props.author.id}`);
         } catch (error) {
             if (error.response) {
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
+                setErrorMessage(error.response.data.messages[0]);
+                setErrorExists(true);
             } else if (error.request) {
                 console.log(error.request);
             } else {
@@ -107,9 +110,8 @@ const EditAuthor = (props) => {
             navigate('/authors');
         } catch (error) {
             if (error.response) {
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
+                setErrorMessage(error.response.data.messages[0]);
+                setErrorExists(true);
             } else if (error.request) {
                 console.log(error.request);
             } else {
@@ -117,6 +119,11 @@ const EditAuthor = (props) => {
             }
         }
     };
+
+    //clear error message on text change
+    useEffect(() => {
+        setErrorExists(false);
+    }, [authorName]);
 
     //handle quote featured checkbox
     function handleChecked() {
@@ -189,9 +196,19 @@ const EditAuthor = (props) => {
                     />
                 </div>
                 <div className="form-group featured-group">
-                    <input type="checkbox" id="authorIsFeatured" checked={authorFeatured} onChange={handleChecked} />
+                    <input
+                        type="checkbox"
+                        id="authorIsFeatured"
+                        checked={authorFeatured}
+                        onChange={handleChecked}
+                    />
                     <label htmlFor="authorIsFeatured">Featured</label>
                 </div>
+
+                <div className="form-group error-group">
+                    {errorExists && <p className="error-text">{errorMessage}</p>}
+                </div>
+
                 <div className="form-group buttons-group">
                     <button type="submit" className="submit-button form-button" tabIndex={6}>
                         Submit
@@ -201,7 +218,12 @@ const EditAuthor = (props) => {
                         Delete
                     </button>
 
-                    <button className="cancel-button form-button" type="button" onClick={props.onCancel} tabIndex={8}>
+                    <button
+                        className="cancel-button form-button"
+                        type="button"
+                        onClick={props.onCancel}
+                        tabIndex={8}
+                    >
                         Cancel
                     </button>
                 </div>

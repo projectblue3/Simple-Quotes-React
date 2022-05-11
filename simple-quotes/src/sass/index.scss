@@ -65,6 +65,10 @@ body {
     padding-left: 1em;
 }
 
+.error-text {
+    color: utils.$error-text;
+}
+
 //headings
 .big-home-heading {
     font-size: utils.$h1-size;

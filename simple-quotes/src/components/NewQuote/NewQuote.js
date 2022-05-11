@@ -10,6 +10,8 @@ const NewQuote = (props) => {
     const [quoteText, setQuoteText] = useState('');
     const [authorSelected, setAuthorSelected] = useState(0);
     const [quoteFeatured, setQuoteFeatured] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+    const [errorExists, setErrorExists] = useState(false);
 
     //history
     let navigate = useNavigate();
@@ -41,17 +43,19 @@ const NewQuote = (props) => {
 
     //handle post requests
     const postHandler = async (e) => {
+        e.preventDefault();
         try {
             const quote = await axios.post('/api/quotes/', {
                 authorId: authorSelected,
                 text: quoteText,
                 isFeatured: quoteFeatured,
             });
+
+            navigate(`/quotes/`);
         } catch (error) {
             if (error.response) {
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
+                setErrorMessage(error.response.data.messages[0]);
+                setErrorExists(true);
             } else if (error.request) {
                 console.log(error.request);
             } else {
@@ -59,6 +63,11 @@ const NewQuote = (props) => {
             }
         }
     };
+
+    //clear error message on text change
+    useEffect(() => {
+        setErrorExists(false);
+    }, [quoteText]);
 
     //handle quote featured checkbox
     function handleChecked() {
@@ -107,8 +116,18 @@ const NewQuote = (props) => {
                 </div>
 
                 <div className="form-group featured-group">
-                    <input type="checkbox" id="quoteIsFeaturedC" className="featured-check" checked={quoteFeatured} onChange={handleChecked} />
+                    <input
+                        type="checkbox"
+                        id="quoteIsFeaturedC"
+                        className="featured-check"
+                        checked={quoteFeatured}
+                        onChange={handleChecked}
+                    />
                     <label htmlFor="quoteIsFeaturedC">Featured?</label>
+                </div>
+
+                <div className="form-group error-group">
+                    {errorExists && <p className="error-text">{errorMessage}</p>}
                 </div>
 
                 <div className="form-group buttons-group">
@@ -116,7 +135,12 @@ const NewQuote = (props) => {
                         Submit
                     </button>
 
-                    <button className="cancel-button form-button" type="button" onClick={props.onCancel} tabIndex={4}>
+                    <button
+                        className="cancel-button form-button"
+                        type="button"
+                        onClick={props.onCancel}
+                        tabIndex={4}
+                    >
                         Cancel
                     </button>
                 </div>

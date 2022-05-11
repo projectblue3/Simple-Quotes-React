@@ -1,7 +1,8 @@
 add some type of loading icon or the skeleton thing
 implement logging
 fix tab indexes
-improve feedback to user (duplicate items, internal server errors)
 add warning on delete and edit
 create mobile layout
 limit date selection
+Fix errors showing up in console
+fix navigation to same page on quote/author creation/editing
