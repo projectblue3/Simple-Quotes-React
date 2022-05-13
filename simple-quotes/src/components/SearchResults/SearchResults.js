@@ -25,7 +25,11 @@ const SearchResults = (props) => {
             <main className="quotes-main">
                 <div className="page-content" id="search-content">
                     <h2 className="big-home-heading">Search Results For: {searchParams.get('q')}</h2>
-                    <DisplayQuotes url={`/api/quotes/?searchterms=${searchParams.get('q')}`} />
+                    <DisplayQuotes
+                        url={`${process.env.REACT_APP_API_URL}/api/quotes/?searchterms=${searchParams.get(
+                            'q'
+                        )}`}
+                    />
                 </div>
             </main>
 

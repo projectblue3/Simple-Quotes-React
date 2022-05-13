@@ -42,7 +42,7 @@ const EditQuote = (props) => {
         }
 
         try {
-            await axios.patch(`/api/quotes/${props.quote.id}`, patchData);
+            await axios.patch(`${process.env.REACT_APP_API_URL}/api/quotes/${props.quote.id}`, patchData);
             navigate(`/quotes/`);
         } catch (error) {
             if (error.response) {
@@ -61,7 +61,7 @@ const EditQuote = (props) => {
     const deleteHandler = async (e) => {
         e.preventDefault();
         try {
-            await axios.delete(`/api/quotes/${props.quote.id}`);
+            await axios.delete(`${process.env.REACT_APP_API_URL}/api/quotes/${props.quote.id}`);
             navigate(`/quotes/`);
         } catch (error) {
             if (error.response) {

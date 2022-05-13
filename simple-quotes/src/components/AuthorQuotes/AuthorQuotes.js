@@ -26,7 +26,7 @@ const AuthorQuotes = (props) => {
     useEffect(() => {
         (async function () {
             try {
-                const { data } = await axios.get(`/api/authors/${params.id}`);
+                const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/authors/${params.id}`);
                 setAuthor(data);
             } catch (error) {
                 if (error.response) {
@@ -86,26 +86,26 @@ const AuthorQuotes = (props) => {
                     </button>
 
                     <div className="author-details">
-                        <p className="author-info">
+                        <div className="author-info">
                             <h3 className="small-home-heading">Date Of Birth:</h3>
                             <span className="info-text"> {author.dateOfBirth}</span>
-                        </p>
+                        </div>
                         {author.dateOfDeath && (
-                            <p className="author-info">
+                            <div className="author-info">
                                 <h3 className="small-home-heading">Date Of Death:</h3>
                                 <span className="info-text"> {author.dateOfDeath}</span>
-                            </p>
+                            </div>
                         )}
-                        <p className="author-info">
+                        <div className="author-info">
                             <h3 className="small-home-heading">Occupation:</h3>
                             <span className="info-text"> {author.occupation}</span>
-                        </p>
-                        <p className="author-info">
+                        </div>
+                        <div className="author-info">
                             <h3 className="small-home-heading">Biography:</h3>
                             <span className="info-text"> {author.bio}</span>
-                        </p>
+                        </div>
                     </div>
-                    <DisplayQuotes url={`/api/authors/${params.id}/quotes`} />
+                    <DisplayQuotes url={`${process.env.REACT_APP_API_URL}/api/authors/${params.id}/quotes`} />
 
                     {editAuthorDisplay && (
                         <div className="edit-container">

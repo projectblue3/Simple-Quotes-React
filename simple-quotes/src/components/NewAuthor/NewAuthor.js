@@ -27,7 +27,7 @@ const NewAuthor = (props) => {
     const postHandler = async (e) => {
         e.preventDefault();
         try {
-            const author = await axios.post('/api/authors/', {
+            const author = await axios.post(`${process.env.REACT_APP_API_URL}/api/authors/`, {
                 Name: authorName,
                 DateOfBirth: authorDob,
                 DateOfDeath: authorDod,

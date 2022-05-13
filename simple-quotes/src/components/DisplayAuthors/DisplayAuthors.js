@@ -11,7 +11,7 @@ const DisplayAuthors = (props) => {
     useEffect(() => {
         (async function () {
             try {
-                const { data } = await axios.get('/api/authors');
+                const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/authors`);
                 setAuthors(data);
             } catch (error) {
                 if (error.response) {

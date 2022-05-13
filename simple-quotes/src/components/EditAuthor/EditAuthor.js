@@ -86,7 +86,7 @@ const EditAuthor = (props) => {
 
         try {
             console.log(patchData);
-            await axios.patch(`/api/authors/${props.author.id}`, patchData);
+            await axios.patch(`${process.env.REACT_APP_API_URL}/api/authors/${props.author.id}`, patchData);
             navigate(`/author/${props.author.id}`);
         } catch (error) {
             if (error.response) {
@@ -106,7 +106,7 @@ const EditAuthor = (props) => {
         e.preventDefault();
 
         try {
-            await axios.delete(`/api/authors/${props.author.id}`);
+            await axios.delete(`${process.env.REACT_APP_API_URL}/api/authors/${props.author.id}`);
             navigate('/authors');
         } catch (error) {
             if (error.response) {

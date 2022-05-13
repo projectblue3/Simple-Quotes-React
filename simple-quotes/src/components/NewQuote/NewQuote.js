@@ -23,7 +23,7 @@ const NewQuote = (props) => {
     useEffect(() => {
         (async function () {
             try {
-                const { data } = await axios.get('/api/authors');
+                const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/authors`);
                 setAuthors(data);
                 setAuthorSelected(data[0].id);
             } catch (error) {
@@ -45,7 +45,7 @@ const NewQuote = (props) => {
     const postHandler = async (e) => {
         e.preventDefault();
         try {
-            const quote = await axios.post('/api/quotes/', {
+            const quote = await axios.post(`${process.env.REACT_APP_API_URL}/api/quotes/`, {
                 authorId: authorSelected,
                 text: quoteText,
                 isFeatured: quoteFeatured,
@@ -99,10 +99,11 @@ const NewQuote = (props) => {
                         id="author-list"
                         className="form-text-box"
                         required
+                        defaultValue={''}
                         tabIndex={1}
                         onChange={(e) => setAuthorSelected(parseInt(e.target.value))}
                     >
-                        <option value="" disabled selected>
+                        <option value="" disabled>
                             Author
                         </option>
                         {authors.map((a) => {
