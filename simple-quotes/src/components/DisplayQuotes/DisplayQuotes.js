@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import loadGif from '../../icons/640px-Loader.gif';
 import './DisplayQuotes.css';
 
 //Components
@@ -12,6 +13,7 @@ const DisplayQuotes = (props) => {
     const [quotes, setQuotes] = useState([]);
     const [editDisplay, setEditDisplay] = useState(false);
     const [quoteToEdit, setQuoteToEdit] = useState({});
+    const [contentLoaded, setContentLoaded] = useState(false);
 
     //hooks
     //grab all quotes from api
@@ -20,6 +22,7 @@ const DisplayQuotes = (props) => {
             try {
                 const { data } = await axios.get(props.url);
                 setQuotes(data);
+                setContentLoaded(true);
             } catch (error) {
                 if (error.response) {
                     // The request was made and the server responded with a status code
@@ -53,48 +56,56 @@ const DisplayQuotes = (props) => {
 
     //jsx
     return (
-        <div className="quotes-container">
-            {!quotes.length > 0 && <h3 className="big-home-heading">No Quotes</h3>}
-            {quotes.map((q) => {
-                return (
-                    <div className="quotes-item" key={q.id}>
-                        <div className="item-group quote-edit">
-                            <button className="edit-button form-button" onClick={() => handleEdit(q)}>
-                                Edit
-                            </button>
+        <div>
+            {contentLoaded === false ? (
+                <div className="load-container">
+                    <img src={loadGif} alt="loading..." className="loading-icon" />
+                </div>
+            ) : (
+                <div className="quotes-container">
+                    {!quotes.length > 0 && <h3 className="big-home-heading">No Quotes</h3>}
+                    {quotes.map((q) => {
+                        return (
+                            <div className="quotes-item" key={q.id}>
+                                <div className="item-group quote-edit">
+                                    <button className="edit-button form-button" onClick={() => handleEdit(q)}>
+                                        Edit
+                                    </button>
+                                </div>
+
+                                <div className="item-group">
+                                    <p className="quote-text">{q.text}</p>
+                                </div>
+
+                                {q.authorId ? (
+                                    <div className="item-group">
+                                        <Link to={`/author/${q.authorId}`} className="author-name">
+                                            {q.authorName}
+                                        </Link>
+                                    </div>
+                                ) : (
+                                    <div className="item-group">
+                                        <p className="author-name">{q.authorName}</p>
+                                    </div>
+                                )}
+
+                                {q.isFeatured && (
+                                    <div className="item-group">
+                                        <span className="featured-text">Featured Quote</span>
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    })}
+
+                    {editDisplay && (
+                        <div className="edit-container">
+                            <Popup
+                                content={<EditQuote onCancel={handleCancel} quote={quoteToEdit} />}
+                                onCancel={handleCancel}
+                            />
                         </div>
-
-                        <div className="item-group">
-                            <p className="quote-text">{q.text}</p>
-                        </div>
-
-                        {q.authorId ? (
-                            <div className="item-group">
-                                <Link to={`/author/${q.authorId}`} className="author-name">
-                                    {q.authorName}
-                                </Link>
-                            </div>
-                        ) : (
-                            <div className="item-group">
-                                <p className="author-name">{q.authorName}</p>
-                            </div>
-                        )}
-
-                        {q.isFeatured && (
-                            <div className="item-group">
-                                <span className="featured-text">Featured Quote</span>
-                            </div>
-                        )}
-                    </div>
-                );
-            })}
-
-            {editDisplay && (
-                <div className="edit-container">
-                    <Popup
-                        content={<EditQuote onCancel={handleCancel} quote={quoteToEdit} />}
-                        onCancel={handleCancel}
-                    />
+                    )}
                 </div>
             )}
         </div>

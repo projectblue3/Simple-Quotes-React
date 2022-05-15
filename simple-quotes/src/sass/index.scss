@@ -68,6 +68,15 @@ body {
 .error-text {
     color: utils.$error-text;
 }
+.load-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loading-icon{
+    height: 200px;
+    width: 200px;
+}
 
 //headings
 .big-home-heading {

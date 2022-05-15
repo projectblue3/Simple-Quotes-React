@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import gitLogo from '../../icons/GitHub-Mark-Light-64px.png';
 import liLogo from '../../icons/LI-In-Bug-White.png';
 import instaLogo from '../../icons/instagram-white.png';
+import loadGif from '../../icons/640px-Loader.gif';
 import './Home.css';
 
 //Components
@@ -140,15 +141,21 @@ const Home = (props) => {
                             <div className="home-authors home-card">
                                 <h3 className="home-heading">Featured Authors</h3>
                                 <div className="home-card-content">
-                                    <div className="authors-list">
-                                        {featuredAuthors.map((a) => (
-                                            <div className="authors-item" key={a.id}>
-                                                <Link className="author-name" to={`/author/${a.id}`}>
-                                                    {a.name}
-                                                </Link>
-                                            </div>
-                                        ))}
-                                    </div>
+                                    {featuredAuthors.length == 0 ? (
+                                        <div className="load-container">
+                                            <img src={loadGif} alt="loading..." className="loading-icon" />
+                                        </div>
+                                    ) : (
+                                        <div className="authors-list">
+                                            {featuredAuthors.map((a) => (
+                                                <div className="authors-item" key={a.id}>
+                                                    <Link className="author-name" to={`/author/${a.id}`}>
+                                                        {a.name}
+                                                    </Link>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
                             </div>
 
@@ -208,17 +215,23 @@ const Home = (props) => {
                         <div className="home-quotes">
                             <h3 className="home-heading">Featured Quotes</h3>
                             <div className="home-card-content">
-                                <div className="quotes-list">
-                                    {featuredQuotes.map((q) => (
-                                        <div className="home-quotes-item" key={q.id}>
-                                            <p className="quote-text">{q.text}</p>
+                                {featuredQuotes.length == 0 ? (
+                                    <div className="load-container">
+                                        <img src={loadGif} alt="loading..." className="loading-icon" />
+                                    </div>
+                                ) : (
+                                    <div className="quotes-list">
+                                        {featuredQuotes.map((q) => (
+                                            <div className="home-quotes-item" key={q.id}>
+                                                <p className="quote-text">{q.text}</p>
 
-                                            <Link to={`/author/${q.authorId}`} className="author-name">
-                                                {q.authorName}
-                                            </Link>
-                                        </div>
-                                    ))}
-                                </div>
+                                                <Link to={`/author/${q.authorId}`} className="author-name">
+                                                    {q.authorName}
+                                                </Link>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>

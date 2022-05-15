@@ -1,11 +1,13 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import loadGif from '../../icons/640px-Loader.gif';
 import './DisplayAuthors.css';
 
 const DisplayAuthors = (props) => {
     //states
     const [authors, setAuthors] = useState([]);
+    const [contentLoaded, setContentLoaded] = useState(false);
 
     //hooks
     useEffect(() => {
@@ -13,6 +15,7 @@ const DisplayAuthors = (props) => {
             try {
                 const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/authors`);
                 setAuthors(data);
+                setContentLoaded(true);
             } catch (error) {
                 if (error.response) {
                     console.log(error.response.data);
@@ -30,22 +33,30 @@ const DisplayAuthors = (props) => {
 
     //jsx
     return (
-        <div className="authors-container">
-            {authors.map((a) => {
-                return (
-                    <div className="authors-item" key={a.id}>
-                        <div className="item-group">
-                            <Link className="author-name" to={`/author/${a.id}`}>
-                                {a.name}
-                            </Link>
-                        </div>
+        <div>
+            {contentLoaded === false ? (
+                <div className="load-container">
+                    <img src={loadGif} alt="loading..." className="loading-icon" />
+                </div>
+            ) : (
+                <div className="authors-container">
+                    {authors.map((a) => {
+                        return (
+                            <div className="authors-item" key={a.id}>
+                                <div className="item-group">
+                                    <Link className="author-name" to={`/author/${a.id}`}>
+                                        {a.name}
+                                    </Link>
+                                </div>
 
-                        <div className="item-group">
-                            {a.isFeatured && <span className="featured-text">Featured Author</span>}
-                        </div>
-                    </div>
-                );
-            })}
+                                <div className="item-group">
+                                    {a.isFeatured && <span className="featured-text">Featured Author</span>}
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            )}
         </div>
     );
 };
