@@ -138,3 +138,11 @@ body {
     gap: 0.5em;
     margin-bottom: 0;
 }
+
+//Mobile layouts
+//iPad
+@media screen and (max-width:1180px) {
+    .page-content {
+        width: utils.$ipad-content-width;
+    }
+}

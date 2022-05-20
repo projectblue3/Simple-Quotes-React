@@ -141,6 +141,19 @@
         content: '- ';
     }
 }
+
+//Mobile layouts
+//iPad
+@media screen and (max-width:1180px) {
+    .authors-list {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(32, 1fr);
+    }
+
+    .home-social-links {
+        width: 20vw;
+    }
+}
 /*
 
 .content-square {

@@ -1,1 +1,1 @@
-.footer{display:flex;justify-content:space-between;width:70vw;padding-top:1.5em}.social-links{width:128px;display:flex;justify-content:flex-end}.sl-icon{max-width:32px;margin:0 1em}/*# sourceMappingURL=Footer.css.map */
+@import"https://fonts.googleapis.com/css2?family=Nunito&display=swap";.footer{display:flex;justify-content:space-between;width:70vw;padding-top:1.5em}.social-links{width:128px;display:flex;justify-content:flex-end}.sl-icon{max-width:32px;margin:0 1em}@media screen and (max-width: 1180px){.footer{width:80vw}}/*# sourceMappingURL=Footer.css.map */

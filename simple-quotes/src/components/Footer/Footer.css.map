@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../../sass/Footer.scss","../../sass/_utils.scss"],"names":[],"mappings":"AAEA,QACI,aACA,8BACA,MCGiB,KDFjB,kBAGJ,cACI,YACA,aACA,yBAGJ,SACI,eACA","file":"Footer.css"}
+{"version":3,"sourceRoot":"","sources":["../../sass/_utils.scss","../../sass/Footer.scss"],"names":[],"mappings":"AACQ,sECCR,QACI,aACA,8BACA,MDOiB,KCNjB,kBAGJ,cACI,YACA,aACA,yBAGJ,SACI,eACA,aAKJ,sCACI,QACI,MDXa","file":"Footer.css"}

@@ -19,3 +19,11 @@
 .authors-item {
     width: 250px;
 }
+
+//Mobile layouts
+//Tablets
+@media screen and (max-width:1368px) {
+    .authors-item{
+        width: 190px;
+    }
+}

@@ -33,3 +33,18 @@
     display: flex;
     justify-content: flex-end;
 }
+
+//Mobile layouts
+//Tablets
+@media screen and (max-width:1368px) {
+    .quotes-item{
+        width: 275px;
+    }
+}
+
+//iPad Mini
+@media screen and (max-width:1024px) {
+    .quotes-item{
+        width: 235px;
+    }
+}

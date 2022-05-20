@@ -17,3 +17,11 @@
     max-width: 32px;
     margin: 0 1em;
 }
+
+//Mobile layouts
+//iPad
+@media screen and (max-width:1180px) {
+    .footer {
+        width: utils.$ipad-content-width;
+    }
+}
