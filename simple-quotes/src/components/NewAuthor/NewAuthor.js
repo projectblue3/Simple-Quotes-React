@@ -63,7 +63,7 @@ const NewAuthor = (props) => {
     return (
         <div className="new-item-page">
             <h2 className="big-home-heading">New Author</h2>
-            <form onSubmit={postHandler} className="item-form">
+            <form onSubmit={postHandler} className="item-form author-form">
                 <div className="form-group labeled-group">
                     <label htmlFor="author-name">Name*</label>
                     <input

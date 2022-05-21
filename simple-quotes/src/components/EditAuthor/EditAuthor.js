@@ -134,7 +134,7 @@ const EditAuthor = (props) => {
     return (
         <div className="edit-page">
             <h2 className="big-home-heading">Edit Author</h2>
-            <form onSubmit={patchHandler} className="edit-form">
+            <form onSubmit={patchHandler} className="item-form author-form">
                 <div className="form-group labeled-group">
                     <label htmlFor="author-name">Name*</label>
                     <input

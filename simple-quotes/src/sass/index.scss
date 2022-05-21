@@ -95,6 +95,13 @@ body {
 //forms
 .item-form {
     padding-top: 2em;
+    display: grid;
+}
+
+.item-form.author-form{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    column-gap: 1em;
 }
 
 .form-group {

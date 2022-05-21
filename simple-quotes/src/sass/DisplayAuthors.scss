@@ -27,3 +27,10 @@
         width: 190px;
     }
 }
+
+//iPad Mini
+@media screen and (max-width:1112px) {
+    .authors-item{
+        width: 180px;
+    }
+}
