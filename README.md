@@ -16,4 +16,4 @@ Technologies Used:
   
 Install with npm install
 
-Axios requests relay on a Dotenv environment variable called REACT_APP_API_URL to communicate with backend.
+Axios requests rely on a Dotenv environment variable called REACT_APP_API_URL to communicate with backend.
