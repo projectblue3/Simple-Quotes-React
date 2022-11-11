@@ -110,7 +110,6 @@ body {
 
 .form-text-box {
     background: utils.$dim-light-bg;
-    min-width: 400px;
     border: none;
     border-bottom: 1px solid utils.$dark-text;
     border-radius: 2px;
@@ -146,10 +145,39 @@ body {
     margin-bottom: 0;
 }
 
+#author-list, #quote-text{
+    width: 50vw;
+}
+
 //Mobile layouts
 //iPad
-@media screen and (max-width:1180px) {
+@media screen and (max-width:1300px) {
     .page-content {
         width: utils.$ipad-content-width;
+    }
+}
+
+@media screen and (max-width:885px) {
+    body {
+        font-size: utils.$ipad-font-size;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .page-header {
+        position: relative;
+    }
+
+    .item-form.author-form{
+        grid-template-columns: 1fr;
+        grid-template-rows: unset;
+        column-gap: 0;
+    }
+}
+
+@media screen and (max-height:750px) {
+    .new-item-page{
+        height: 100vh;
+        overflow: auto;
     }
 }

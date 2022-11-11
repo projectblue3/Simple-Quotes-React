@@ -1,1 +1,1 @@
-@import"https://fonts.googleapis.com/css2?family=Nunito&display=swap";.quotes-main{margin-top:8em;width:calc(100vw - (100vw - 100%));display:flex;justify-content:center}/*# sourceMappingURL=Quotes.css.map */
+@import"https://fonts.googleapis.com/css2?family=Nunito&display=swap";.quotes-main{margin-top:8em;width:calc(100vw - (100vw - 100%));display:flex;justify-content:center}@media screen and (max-width: 767px){.quotes-main{margin-top:4em}}/*# sourceMappingURL=Quotes.css.map */

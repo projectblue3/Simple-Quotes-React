@@ -23,7 +23,7 @@ const Quotes = (props) => {
                 <div className="page-content" id="quotes-content">
                     <h2 className="big-home-heading">All Quotes</h2>
                     <p className="page-description">
-                        Feel free to read and share some amazing quotes that motivate, inspire, and teach.
+                        Feel free to read and share some amazing quotes that motivate and inspire.
                     </p>
                     <DisplayQuotes url={`${process.env.REACT_APP_API_URL}/api/quotes`} />
                 </div>

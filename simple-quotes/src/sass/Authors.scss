@@ -3,3 +3,9 @@
 .authors-main {
     @include utils.align-main;
 }
+
+@media screen and (max-width:767px) {
+    .authors-main {
+        margin-top: 4em;
+    }
+}
