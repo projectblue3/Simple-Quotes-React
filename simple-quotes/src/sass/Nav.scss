@@ -89,6 +89,10 @@
             font-size: utils.$ipad-mini-nav-size;
             font-weight: bold;
         }
+
+        .nav-link.small {
+            padding: 0.5em 0em;
+        }
     }
 }
 
@@ -103,5 +107,12 @@
 
     #nav-search{
         display: none;
+    }
+
+    #nav-links {
+        .nav-link{
+            font-size: utils.$nav-size;
+            font-weight: normal;
+        }
     }
 }

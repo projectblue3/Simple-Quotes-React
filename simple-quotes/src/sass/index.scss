@@ -175,9 +175,16 @@ body {
     }
 }
 
-@media screen and (max-height:750px) {
-    .new-item-page{
-        height: 100vh;
-        overflow: auto;
+@media screen and (max-height:900px) and (max-width:767px){
+    .item-form, .form-text-box{
+        font-size: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 1em;
+    }
+
+    .featured-group {
+        font-size: 1em;
     }
 }
