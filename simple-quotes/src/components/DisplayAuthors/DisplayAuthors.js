@@ -40,6 +40,7 @@ const DisplayAuthors = (props) => {
                 </div>
             ) : (
                 <div className="authors-container">
+                    {!authors.length > 0 && <h3 className="big-home-heading">No Authors</h3>}
                     {authors.map((a) => {
                         return (
                             <div className="authors-item" key={a.id}>

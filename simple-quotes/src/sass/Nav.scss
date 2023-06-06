@@ -21,6 +21,15 @@
         color: utils.$light-bg;
     }
 
+    .nav-link img {
+        height: 32px;
+        width: 32px;
+    }
+
+    #pen-link {
+        display: flex;
+    }
+
     .nav-link.small {
         padding: 1em 0.5em;
     }

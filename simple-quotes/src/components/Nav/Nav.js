@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import './Nav.css';
+import penLogo from '../../icons/penlight.png';
 
 //components
 import NewQuote from '../NewQuote/NewQuote';
@@ -31,7 +32,8 @@ const Nav = (props) => {
     return (
         <nav id="site-nav">
             <div id="nav-links">
-                <Link to="/" className="nav-link">
+                <Link to="/" id="pen-link" className="nav-link">
+                    <img src={penLogo} alt="Pen Logo" />
                     <h1 id="nav-title">Simple Quotes</h1>
                 </Link>
 
@@ -69,9 +71,13 @@ const Nav = (props) => {
                 </form>
             </div>
 
-            {newQuoteDisplay && <Popup content={<NewQuote onCancel={handleCancel} />} onCancel={handleCancel} />}
+            {newQuoteDisplay && (
+                <Popup content={<NewQuote onCancel={handleCancel} />} onCancel={handleCancel} />
+            )}
 
-            {newAuthorDisplay && <Popup content={<NewAuthor onCancel={handleCancel} />} onCancel={handleCancel} />}
+            {newAuthorDisplay && (
+                <Popup content={<NewAuthor onCancel={handleCancel} />} onCancel={handleCancel} />
+            )}
         </nav>
     );
 };

@@ -82,23 +82,24 @@
 
 .home-social-links {
     display: flex;
-    flex-direction: column;
-    width: 15vw;
+    gap: 1em;
+    flex-wrap: wrap;
 }
 
 .home-social-link {
     background: utils.$nav-bg;
     padding: 0.5em;
+    width: 150px;
+    border-radius: 0.5em;
+}
+
+.home-social-link a{
     display: flex;
     align-items: center;
 }
 
 .home-social-link:hover {
     padding-left: 1em;
-}
-
-.home-social-link.linked-in {
-    background: utils.$search-bg;
 }
 
 .home-sl-link span {

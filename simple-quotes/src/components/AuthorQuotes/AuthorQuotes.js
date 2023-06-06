@@ -118,9 +118,9 @@ const AuthorQuotes = (props) => {
                 </div>
             </main>
 
-            <footer className="page-footer">
+            {/* <footer className="page-footer">
                 <Footer />
-            </footer>
+            </footer> */}
         </div>
     );
 };

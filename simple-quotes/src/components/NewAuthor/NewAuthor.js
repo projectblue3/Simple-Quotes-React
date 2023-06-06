@@ -88,7 +88,7 @@ const NewAuthor = (props) => {
                         placeholder="Enter Their Job"
                         onChange={(e) => setAuthorJob(e.target.value)}
                         value={authorJob}
-                        tabIndex={4}
+                        tabIndex={2}
                     />
                 </div>
                 <div className="form-group labeled-group">
@@ -101,7 +101,7 @@ const NewAuthor = (props) => {
                         rows={1}
                         onChange={(e) => setAuthorBio(e.target.value)}
                         value={authorBio}
-                        tabIndex={5}
+                        tabIndex={3}
                     />
                 </div>
                 <div className="form-group labeled-group">
@@ -115,7 +115,7 @@ const NewAuthor = (props) => {
                         className="form-text-box"
                         onChange={(e) => setAuthorDob(e.target.value)}
                         value={authorDob}
-                        tabIndex={2}
+                        tabIndex={4}
                     />
                 </div>
                 <div className="form-group labeled-group">
@@ -126,7 +126,7 @@ const NewAuthor = (props) => {
                         className="form-text-box"
                         onChange={(e) => setAuthorDod(e.target.value)}
                         value={authorDod}
-                        tabIndex={3}
+                        tabIndex={5}
                     />
                 </div>
                 <div className="form-group featured-group">
@@ -136,6 +136,7 @@ const NewAuthor = (props) => {
                         className="featured-check"
                         checked={authorFeatured}
                         onChange={handleChecked}
+                        tabIndex={6}
                     />
                     <label htmlFor="authorIsFeaturedC">Featured</label>
                 </div>
@@ -145,7 +146,7 @@ const NewAuthor = (props) => {
                 </div>
 
                 <div className="form-group buttons-group">
-                    <button type="submit" className="submit-btn form-button" tabIndex={6}>
+                    <button type="submit" className="submit-btn form-button" tabIndex={7}>
                         Submit
                     </button>
 
@@ -153,7 +154,7 @@ const NewAuthor = (props) => {
                         className="cancel-button form-button"
                         type="button"
                         onClick={props.onCancel}
-                        tabIndex={7}
+                        tabIndex={8}
                     >
                         Cancel
                     </button>
