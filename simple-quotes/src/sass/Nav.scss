@@ -30,6 +30,14 @@
         display: flex;
     }
 
+    #pen-logo{
+        transition: transform 2s;
+    }
+
+    #pen-link.nav-link:hover #pen-logo{
+        transform: rotate(360deg);
+    }
+
     .nav-link.small {
         padding: 1em 0.5em;
     }

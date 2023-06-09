@@ -33,7 +33,7 @@ const Nav = (props) => {
         <nav id="site-nav">
             <div id="nav-links">
                 <Link to="/" id="pen-link" className="nav-link">
-                    <img src={penLogo} alt="Pen Logo" />
+                    <img src={penLogo} id="pen-logo" alt="Pen Logo" />
                     <h1 id="nav-title">Simple Quotes</h1>
                 </Link>
 
